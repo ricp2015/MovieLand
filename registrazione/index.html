@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EsercitazioneLab - Pagina di registrazione</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="signin.css"/>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="formValidation.js"></script>
+    </head>
+    <body class="text-center">
+        <form action="registration.php" class="form-signin m-auto" 
+                method="POST" name="myForm" onSubmit="return validaForm()">
+            <h1 class="mb-3 font-weight-normal">Registrati!</h1>
+            <input type="email" name="inputEmail" class="form-control" 
+                placeholder="Indirizzo e-mail" required autofocus/>
+            <input type="password" name="inputPassword" class="form-control" 
+                placeholder="Password" required/>
+            <input type="text" name="inputName" class="form-control"
+                placeholder="Nome" autofocus/>
+            <input type="text" name="inputSurname" class="form-control"
+                placeholder="Cognome" autofocus/>
+            <div id="divCap" class="text-center">
+                <label for="cap">Inserisci il CAP di provenienza:</label>
+                <input id="cap" type="text" name="inputCap" size="5"
+                    maxlength="5"/>
+            </div>
+            <div id="divRemember" class="checkbox mb-3">
+                <input id="rmb" type="checkbox" name="remember"/>
+                <label for="rmb">Ricordami</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Invia!</button>
+        </form>
+    </body>
+</html>
