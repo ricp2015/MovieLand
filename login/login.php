@@ -30,9 +30,11 @@ else {
                             <a href=index.html> Clicca qui per loggarti </a>";
                     }
                     else {
+                        session_start();
                         $nome = $tuple['nome'];
-                        echo "Benvenuto $nome! <a href=../home/MovieLand.html> Premi qui</a>
+                        echo "Benvenuto $nome! <a href=../home/MovieLand.php> Premi qui</a>
                             per iniziare a utilizzare MovieLand";
+                        $_SESSION["user_id"] = $email;
                     }
                 }
             }

@@ -237,7 +237,7 @@ function showMovies(data) {
     })
 }
 
-const overlayContent = document.getElementById('overlay-content');
+var overlayContent = document.getElementById('overlay-content');
 /* Open when someone clicks on the span element */
 function openNav(movie) {
   let id = movie.id;
@@ -288,6 +288,23 @@ function openNav(movie) {
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
+
+/* Da modificare */
+const cascatawatchlist = document.getElementById('cascatawatchlist');
+function addToWatchlist(movie) {
+  let id = movie.id;
+  /*fetch(db_utenti+ '/movie/'+id+'/videos?'+api_key).then(res => res.json()).then(videoData => {
+    console.log(videoData);
+    1)fetchare dal mio db le watchlist dell'utente loggato
+    1.1) meglio funzione a parte, se non ne trova dice che non ci sono,
+     così si può riutilizzare nel menù principale
+    2)creare un bottone per ogni watchlist di un'utente
+    2.1) insert nel db nella table watchlist onClick
+    3)creare un form extra per creare una watchlist da zero 
+    3.1) insert nel db con titolo watchlist inserito dallo user + user + film
+    */
+    document.getElementById("watchList").style.width = "100%";
+      }
 
 var activeSlide = 0;
 var totalVideos = 0;
