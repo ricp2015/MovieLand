@@ -19,19 +19,20 @@ else {
                 $result=pg_query_params($dbconn, $q1, array($email));
                 if ($tuple=pg_fetch_array($result, null, PGSQL_ASSOC)) {
                     echo "<h1> Spiacente, l'indirizzo email non e' disponibile</h1>
-                        Se vuoi, <a href=../login.php> clicca qui per loggarti </a>";
+                        Se vuoi, <a href=../login/index.html> clicca qui per loggarti </a>";
                 }
                 else {
                     $nome = $_POST['inputName'];
                     $cognome = $_POST['inputSurname'];
                     $cap = $_POST['inputCap'];
+                    $password = $_POST['inputPassword'];
                     $q2 = "insert into utente values ($1,$2,$3,$4,$5)";
                     $data = pg_query_params($dbconn, $q2,
                         array($email, $nome, $cognome, $password, $cap));
                     if ($data) {
                         echo "<h1> Registrazione completata. 
                             Puoi iniziare a usare il sito <br/></h1>";
-                        echo "<a href=../login.php> Clicca qui </a>
+                        echo "<a href=../login/index.html> Clicca qui </a>
                             per loggarti!";
                     }
                 }
