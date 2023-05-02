@@ -20,11 +20,6 @@
     </header>
     <div id="tags"></div>
     <div id="myNav" class="overlay">
-
-        <a href="fetchWatchlists.php" class="addtowatchlist">Add to Watchlist</a>
-        
-        <a href="javascript:void(0)" class="addreview" onclick="addReview()">Add a review</a>
-
         <!-- Button to close the overlay navigation -->
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       
@@ -35,10 +30,6 @@
         
         <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow" >&#8658;</a>
 
-      </div>
-      <div id="watchList" class="overlay">
-        <!-- Far comparire a cascata le watchlist + un'opzione per crearne una.-->
-        
       </div>
       <div id="review" class="overlay">
         <!-- Far comparire un box per le recensioni.-->
