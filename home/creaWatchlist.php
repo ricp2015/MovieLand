@@ -28,12 +28,4 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=MovieLand
                     }
                 }
             }
-/*
-$array_values = array();
-// output data of each row
-while($row = $result->fetch_assoc()) {
-   $array_values[] = $row;
-};
-echo json_encode($array_values);
-$conn->close();*/
 ?>

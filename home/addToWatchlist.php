@@ -2,12 +2,12 @@
 session_start();
 
 $email = $_SESSION['user_id'];
-//modificare if
 if(!isset($_GET["watchlist"])) {
     echo "Devi selezionare una watchlist per aggiungere un film!";
     //vedere se il film esiste nel moviedb
   } elseif(!isset($_GET["movie"])){
     echo "Devi selezionare un film da aggiungere alla watchlist!";
+    echo "<a href=MovieLand.php> Clicca qui</a> per scegliere un film da aggiungere";
   } else {
     $dbconn = pg_connect("host=localhost port=5432 dbname=MovieLand
             user=postgres password=password") 

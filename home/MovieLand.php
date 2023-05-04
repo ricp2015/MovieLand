@@ -14,6 +14,9 @@
     email = '<?php echo $_SESSION["user_id"];?>';
     </script>
     <header>
+        <a href="fetchWatchlists.php" id="fetchwatchlists">Le mie Watchlists</a> 
+    </header>
+    <header>
         <form  id="form">
             <input type="text" placeholder="Search" id="search" class="search">
         </form>
