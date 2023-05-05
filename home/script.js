@@ -210,7 +210,7 @@ function showMovies(data) {
         const {title, poster_path, vote_average, overview, id} = movie;
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
-        var link = "fetchWatchlists.php?movie="+id.toString()+"&title="+encodeURIComponent(movie.title.toString());
+        var link = "dettagliFilm.php?movie="+id.toString()+"&title="+encodeURIComponent(movie.title.toString());
         movieEl.innerHTML = `
              <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
 

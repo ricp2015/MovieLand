@@ -23,16 +23,18 @@ if ($dbconn) {
         echo "<div id='boxfilm'></div>";
         echo "<script>
         var php_var = '<?php echo $url; ?>'; 
-        php_var = php_var.substring(11, 93);
+        php_var = php_var.substring(11, php_var.length - 4);
         fetch(php_var).then(res => res.json()).then(data => {
         console.log(data);
         const {title, poster_path, vote_average, overview, runtime, release_date, id} = data;
-        if(poster_path){
-            document.getElementById('boxfilm').innerHTML += '<br> <img src=\'https://image.tmdb.org/t/p/w200'+poster_path+'\' alt=\''+title+'\'><br><br>';
-        } else{ 
-            document.getElementById('boxfilm').innerHTML += '<img src=\'http://via.placeholder.com/1080x1580\' alt=\''+title+'\'>';
-            }
-        document.getElementById('boxfilm').innerHTML += 'Titolo: ' + title + ' <br> Durata: '+ runtime +' minuti <br> Voto: '+ vote_average.toFixed(1) +'<br>';});
+            if(poster_path){
+                document.getElementById('boxfilm').innerHTML += '<br> <img src=\'https://image.tmdb.org/t/p/w200'+poster_path+'\' alt=\''+title+'\'><br><br>';
+            } else{ 
+                document.getElementById('boxfilm').innerHTML += '<img src=\'http://via.placeholder.com/1080x1580\' alt=\''+title+'\'>';
+                }
+            document.getElementById('boxfilm').innerHTML += 'Titolo: ' + title + ' <br> Durata: '+ runtime +' minuti <br> Voto: '+ vote_average.toFixed(1) +'<br>';
+            document.getElementById('boxfilm').innerHTML += '<a href=\'dettagliFilm.php?movie='+id+'&language=it\'>Scheda film</a><br><br>';
+        });
         </script>";
     }
     if ($counter == 0) {
