@@ -2,7 +2,7 @@ var db_film = 'https://api.themoviedb.org/3';
 var api_key = 'api_key=1cf50e6248dc270629e802686245c2c8';
 //cambiare la key
 const API_URL = db_film + '/discover/movie?sort_by=popularity.desc&' + api_key;
-const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+const IMG_URL = 'https://image.tmdb.org/t/p/original';
 const searchURL = db_film + '/search/movie?' + api_key;
 
 //vedere se si può ridurre
@@ -243,25 +243,36 @@ var overlayContent = document.getElementById('overlay-content');
 /* Open when someone clicks on the span element */
 function openNav(movie) {
   let id = movie.id;
-  fetch(db_film + '/movie/'+id+'/videos?'+api_key).then(res => res.json()).then(videoData => {
+  Promise.all([
+    fetch(db_film + '/movie/'+id+'/images?'+api_key+'&language=en&include_image_language=en,null').then(res => res.json()),
+    fetch(db_film + '/movie/'+id+'/videos?'+api_key).then(res => res.json())
+  ]).then(videoData => {
     console.log(videoData);
     if(videoData){
       document.getElementById("myNav").style.width = "100%";
-      if(videoData.results.length > 0){
+      if(videoData[0].backdrops.length > 0 && videoData[1].results.length > 0){
         var embed = [];
         var dots = [];
-        videoData.results.forEach((video, idx) => {
-          let {name, key, site} = video
-
+        videoData[0].backdrops.slice(0,5).forEach((img, idx) => {
+          let {file_path} = img;
+            embed.push(`
+              <img width="560" height="315" src="${IMG_URL + file_path}" class="embed hide" </img>
+          
+          `)
+            dots.push(`
+              <span class="dot">${idx + 1}</span>
+            `)
+          })
+        videoData[1].results.slice(0,5).forEach((video, idx) => {
+          let {name, key, site} = video;
           if(site == 'YouTube'){
-              
             embed.push(`
               <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           
           `)
 
             dots.push(`
-              <span class="dot">${idx + 1}</span>
+              <span class="dot">${idx + 6}</span>
             `)
           }
         })
@@ -290,23 +301,6 @@ function openNav(movie) {
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
-
-/* Da modificare */
-const cascatawatchlist = document.getElementById('cascatawatchlist');
-function addToWatchlist(movie) {
-  let id = movie.id;
-  /*fetch(db_utenti+ '/movie/'+id+'/videos?'+api_key).then(res => res.json()).then(videoData => {
-    console.log(videoData);
-    1)fetchare dal mio db le watchlist dell'utente loggato
-    1.1) meglio funzione a parte, se non ne trova dice che non ci sono,
-     così si può riutilizzare nel menù principale
-    2)creare un bottone per ogni watchlist di un'utente
-    2.1) insert nel db nella table watchlist onClick
-    3)creare un form extra per creare una watchlist da zero 
-    3.1) insert nel db con titolo watchlist inserito dallo user + user + film
-    */
-    document.getElementById("watchList").style.width = "100%";
-      }
 
 var activeSlide = 0;
 var totalVideos = 0;
