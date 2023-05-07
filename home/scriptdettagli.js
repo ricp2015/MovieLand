@@ -12,7 +12,9 @@ Promise.all([
     fetch(url4).then(resp => resp.json())
     ]).then(data => {
             console.log(data);
-            var {title, poster_path, vote_average, overview, runtime, release_date, id} = data[0];
+            var {title, poster_path, vote_average, overview, runtime, release_date, id, revenue} = data[0];
+            release_date = release_date.split("-").reverse().join("-");
+            revenue = revenue.toString().match(/.{1,3}/g);
             var overview=getOverview(data[1],overview);
             var cast = getCast(data[2]);
             var images = getProviders(data[3]);
@@ -21,7 +23,7 @@ Promise.all([
         } else{ 
             document.getElementById('dettagli').innerHTML += '<img src=\'http://via.placeholder.com/1080x1580\' alt=\''+title+'\'>';
             }
-        document.getElementById('dettagli').innerHTML += 'Titolo: ' + title + ' <br> Durata: '+ runtime +' minuti <br> Voto: '+ vote_average.toFixed(1) +'<br> Trama: ' +overview+'<br>';
+        document.getElementById('dettagli').innerHTML += 'Titolo: ' + title + ' <br> Durata: '+ runtime + ' minuti <br> Rilasciato il: ' + release_date + '<br> Voto: '+ vote_average.toFixed(1)+ '<br> Incassi: $'+ revenue +'<br> Trama: ' +overview+'<br><br>';
         document.getElementById('dettagli').innerHTML += 'Cast: ' + cast + '<br><br>';
         document.getElementById('dettagli').innerHTML += '<a href=\'MovieLand.php\'>Scegli un altro film</a><br><br>';
         var cont = 0;
