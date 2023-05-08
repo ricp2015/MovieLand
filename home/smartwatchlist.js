@@ -16,28 +16,24 @@ fetch(php_var).then(res => res.json()).then(data => {
 
 function suggestMovies(filmId, title){
     var times = document.getElementById('quantity'+filmId).value;
-    var matches=[];
     var pagenumber = 1;
     var url = "https://api.themoviedb.org/3/movie/"+filmId;
     urlvar = "/recommendations?page="+pagenumber+"&api_key=1cf50e6248dc270629e802686245c2c8";
     urlvar = url + urlvar;
     url = 'addToWatchlist.php?watchlist='+watch+'&movie='+filmId+'&title='+title;
-    alert(url);
     fetch(urlvar).then(resp => resp.json()).then(dat =>{
         console.log(dat);
         for(let i in dat.results){
                     if(times > 0){
-                        matches.push(dat.results[i]);
-                        alert(dat.results[i].id);
                         $.ajax({
                             type: "GET",
-                            url: 'addToWatchlist.php?watchlist='+watch+'&movie='+dat.results[i].id+'&title='+title
+                            url: 'addToWatchlist.php?watchlist='+watch+'&movie='+dat.results[i].id+'&title='+title,
+                            success: function () {
+                                window.location.href = 'viewWatchlist.php?watchlist='+watch;
+                            }
                         });
                         times = times - 1;
                     }
                 }
-            document.getElementById("sceltafilm").innerHTML += "Sono stati aggiunti " + matches.length + " film alla watchlist<br>";
         });
-    //dopo lo prende un redirect php che fa l'insert nel db
-    return matches;
 }
