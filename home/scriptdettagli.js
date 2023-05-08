@@ -17,6 +17,7 @@ Promise.all([
             revenue = revenue.toString().split("").reverse().join("").match(/.{1,3}/g).reverse().map(item => item.split('').reverse().join(''));
             var overview=getOverview(data[1],overview);
             var cast = getCast(data[2]);
+            var crew = getCrew(data[2]);
             var images = getProviders(data[3]);
         if(poster_path){
             document.getElementById('dettagli').innerHTML += '<br> <img src=\'https://image.tmdb.org/t/p/original'+poster_path+'\' alt=\''+title+'\' height=\'720\' width=\'480\'><br><br>';
@@ -25,6 +26,7 @@ Promise.all([
             }
         document.getElementById('dettagli').innerHTML += 'Titolo: ' + title + ' <br> Durata: '+ runtime + ' minuti <br> Rilasciato il: ' + release_date + '<br> Voto: '+ vote_average.toFixed(1)+ '<br> Incassi: $'+ revenue +'<br> Trama: ' +overview+'<br><br>';
         document.getElementById('dettagli').innerHTML += 'Cast: ' + cast + '<br><br>';
+        document.getElementById('dettagli').innerHTML += 'Crew: ' + crew + '<br><br>';
         title = encodeURIComponent(title).replace(/'/g, "%27");
         document.getElementById('dettagli').innerHTML += '<a href=\'fetchWatchlists.php?movie='+ id +'&title='+ title +'\'>Aggiungi a una watchlist</a><br>';
         document.getElementById('dettagli').innerHTML += '<a href=\'MovieLand.php\'>Scegli un altro film</a><br><br>';
@@ -61,14 +63,26 @@ Promise.all([
         return [...new Set(images)];
     }
 
+    function getCrew(data){
+        var {crew} = data;
+        var returnedstring = '';
+        for(let c in crew){
+            var {name, job} = crew[c];
+            if(job == "Director"|| job == "Writer"|| job == "Casting"|| job == "Original Music Composer" || job == "Producer"|| job == "Executive Producer"){
+            returnedstring += name + ' (' + job + '), ';
+            }
+        }
+        return returnedstring.substring(0, returnedstring.length - 2);
+    }
+
     function getCast(data){
-        var {cast, crew} = data;
+        var {cast} = data;
         var returnedstring = '';
         for(let act in cast){
             var {name, character, id} = cast[act];
-            returnedstring += name + '(' + character + '), ';
+            returnedstring += name + ' (' + character + '), ';
         }
-        return returnedstring;
+        return returnedstring.substring(0, returnedstring.length - 2);
     }
 
     function getOverview(data, trama){
