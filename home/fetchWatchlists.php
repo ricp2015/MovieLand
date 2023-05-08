@@ -20,6 +20,7 @@ if ($dbconn) {
         if(isset($_GET["movie"]) and isset($_GET["title"])){
             $movie = $_GET['movie'];
             $title = $_GET['title'];
+            $title = urlencode($title);
             echo "<form action='addToWatchlist.php' method='get'>
             <input type='hidden' id='movie' name='movie' value='$movie'> 
             <input type='hidden' id='title' name='title' value='$title'> 

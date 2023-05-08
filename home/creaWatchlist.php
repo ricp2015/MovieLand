@@ -16,7 +16,6 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=MovieLand
                 }
                 else {
                     $descrizione = $_POST['inputDescription'];
-                    //da mettere id progressivo
                     $email = $_SESSION['user_id'];
                     $q2 = "insert into watchlist values ($1,$2,$3)";
                     $data = pg_query_params($dbconn, $q2,

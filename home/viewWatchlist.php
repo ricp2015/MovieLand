@@ -33,15 +33,19 @@ if ($dbconn) {
                 document.getElementById('boxfilm').innerHTML += '<img src=\'http://via.placeholder.com/1080x1580\' alt=\''+title+'\'>';
                 }
             document.getElementById('boxfilm').innerHTML += 'Titolo: ' + title + ' <br> Durata: '+ runtime +' minuti <br> Voto: '+ vote_average.toFixed(1) +'<br>';
-            document.getElementById('boxfilm').innerHTML += '<a href=\'dettagliFilm.php?movie='+id+'&language=it\'>Scheda film</a><br><br>';
+            document.getElementById('boxfilm').innerHTML += '<a href=\'dettagliFilm.php?movie='+id+'&language=it\'>Scheda film</a><br>';
+            document.getElementById('boxfilm').innerHTML += '<a href=\'rimuoviFilm.php?movie='+id+'&watchlist=$watch\'>Rimuovi dalla watchlist</a><br><br>';
+            
         });
         </script>";
     }
     if ($counter == 0) {
         echo "<h1>Non hai ancora aggiunto film a questa watchlist!</h1>
-            <a href=MovieLand.php> Clicca qui per aggiungerne uno </a>";
-    }else{echo "<br> <a href=MovieLand.php> Clicca qui per aggiungere un nuovo film alla watchlist</a>";
+            <a href=MovieLand.php> Clicca qui per aggiungerne uno<br></a>";
+    }else{echo "<br> <div><a href=MovieLand.php> Clicca qui</a> per aggiungere un nuovo film alla watchlist</div><br>";
     }
+    echo "<a href=watchlistIntelligente.php?watchlist=$watch><div>Clicca qua</a> per aggiungere dei film suggeriti alla watchlist</div>
+         <br>";
 }
 }
 ?>
