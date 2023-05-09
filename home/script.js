@@ -1,7 +1,7 @@
 var db_film = 'https://api.themoviedb.org/3';
 var api_key = 'api_key=1cf50e6248dc270629e802686245c2c8';
 //cambiare la key
-const API_URL = db_film + '/discover/movie?sort_by=popularity.desc&' + api_key;
+const API_URL = db_film + '/discover/movie?sort_by=popularity.desc&region=it&include_adult=False&' + api_key;
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 const searchURL = db_film + '/search/movie?' + api_key;
 
@@ -205,12 +205,21 @@ function getMovies(url) {
 
 function showMovies(data) {
     main.innerHTML = '';
-
     data.forEach(movie => {
-        const {title, poster_path, vote_average, overview, id} = movie;
+        var {title, poster_path, vote_average, overview, id} = movie;
+        var url = "https://api.themoviedb.org/3/movie/"+id+"/translations?api_key=1cf50e6248dc270629e802686245c2c8";
         const movieEl = document.createElement('div');
+        fetch(url).then(res => res.json()).then(dat =>{
+        console.log(dat);
+        var {translations} = dat;
+        for(let i in translations){
+          if(translations[i]['iso_639_1']=='it' && translations[i]['data']['title'] != ""){
+                overview = translations[i]['data']['overview'];
+                title = translations[i]['data']['title'];
+              }
+        }
         movieEl.classList.add('movie');
-        var link = "dettagliFilm.php?movie="+id.toString()+"&title="+encodeURIComponent(movie.title.toString());
+        var link = "dettagliFilm.php?movie="+id.toString()+"&title="+encodeURIComponent(title.toString());
         movieEl.innerHTML = `
              <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
 
@@ -235,7 +244,7 @@ function showMovies(data) {
         document.getElementById(id).addEventListener('click', () => {
           console.log(id)
           openNav(movie)
-        })
+        })})
     })
 }
 

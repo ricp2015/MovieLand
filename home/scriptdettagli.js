@@ -16,6 +16,7 @@ Promise.all([
             release_date = release_date.split("-").reverse().join("-");
             revenue = revenue.toString().split("").reverse().join("").match(/.{1,3}/g).reverse().map(item => item.split('').reverse().join(''));
             var overview=getOverview(data[1],overview);
+            title = getTitle(data[1],title);
             var cast = getCast(data[2]);
             var crew = getCrew(data[2]);
             var images = getProviders(data[3]);
@@ -85,17 +86,23 @@ Promise.all([
         return returnedstring.substring(0, returnedstring.length - 2);
     }
 
+    function getTitle(data, titolo){
+        const {translations} = data;
+        var titolo = '';
+        for(let i in translations){
+            if(translations[i]['iso_639_1']=='it' && translations[i]['data']['title']!=''){
+                titolo= translations[i]['data']['title'];
+            break;
+        }}
+            return titolo;
+    }
+
     function getOverview(data, trama){
         const {translations} = data;
-        var overview = '';
         for(let i in translations){
             if(translations[i]['iso_639_1']=='it'){
-                overview = translations[i]['data']['overview'];}
-                    }
-        if(overview != ''){
-            return overview;
-        }
-        else{
+                trama = translations[i]['data']['overview'];
+            break;
+            }}
             return trama;
-        }
     }
