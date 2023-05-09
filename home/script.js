@@ -230,7 +230,7 @@ function showMovies(data) {
 
             <div class="overview">
 
-                <h3>Overview</h3>
+                <h3>Trama</h3>
                 ${overview}
                 <br/> 
                 <button class="know-more" id="${id}">Galleria</button>

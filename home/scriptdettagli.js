@@ -68,9 +68,9 @@ Promise.all([
         var {crew} = data;
         var returnedstring = '';
         for(let c in crew){
-            var {name, job} = crew[c];
+            var {id, name, job} = crew[c];
             if(job == "Director"|| job == "Writer"|| job == "Casting"|| job == "Original Music Composer" || job == "Producer"|| job == "Executive Producer"){
-            returnedstring += name + ' (' + job + '), ';
+            returnedstring += "<a href='dettagliPersona.php?person="+id+"'>"+name+"<a> (" + job + "), ";
             }
         }
         return returnedstring.substring(0, returnedstring.length - 2);
@@ -81,7 +81,7 @@ Promise.all([
         var returnedstring = '';
         for(let act in cast){
             var {name, character, id} = cast[act];
-            returnedstring += name + ' (' + character + '), ';
+            returnedstring += "<a href='dettagliPersona.php?person="+id+"'>"+name+"<a> (" + character + "), ";
         }
         return returnedstring.substring(0, returnedstring.length - 2);
     }
