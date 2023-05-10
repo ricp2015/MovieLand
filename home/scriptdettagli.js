@@ -1,10 +1,11 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 var film = urlParams.get('movie');
-url1 = "https://api.themoviedb.org/3/movie/"+film+"?api_key=1cf50e6248dc270629e802686245c2c8"; 
-url2 = "https://api.themoviedb.org/3/movie/"+film+"/translations?api_key=1cf50e6248dc270629e802686245c2c8"; 
-url3 = "https://api.themoviedb.org/3/movie/"+film+"/credits?api_key=1cf50e6248dc270629e802686245c2c8"; 
-url4 = "https://api.themoviedb.org/3/movie/"+film+"/watch/providers?api_key=1cf50e6248dc270629e802686245c2c8"; 
+const api_key = "2f5263a1468b8f45e9f589381858425e";
+url1 = "https://api.themoviedb.org/3/movie/"+film+"?api_key="+api_key; 
+url2 = "https://api.themoviedb.org/3/movie/"+film+"/translations?api_key="+api_key; 
+url3 = "https://api.themoviedb.org/3/movie/"+film+"/credits?api_key="+ api_key; 
+url4 = "https://api.themoviedb.org/3/movie/"+film+"/watch/providers?api_key="+api_key; 
 Promise.all([
     fetch(url1).then(resp => resp.json()),
     fetch(url2).then(resp => resp.json()),

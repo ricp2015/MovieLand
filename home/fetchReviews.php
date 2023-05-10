@@ -2,6 +2,7 @@
 session_start();
 
 $email = $_SESSION['user_id'];
+$username = $_SESSION['user_name'];
 if(!isset($_GET["movie"]) || !isset($_GET["title"])){
     echo "Devi selezionare un film di cui vedere le recensioni!";
     echo "<a href=MovieLand.php> Clicca qui</a> per scegliere un film";
@@ -22,7 +23,7 @@ if(!isset($_GET["movie"]) || !isset($_GET["title"])){
                     $text = $rev["testo"];
                     $val = $rev["valutazione"];
                     $utente = $rev["utente"];
-                    echo "<div>$utente ha dato $val stelle: $text</div><br>";
+                    echo "<div>$username ha dato $val stelle: $text</div><br>";
                 }
             }
   }

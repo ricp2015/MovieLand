@@ -23,12 +23,10 @@ else {
                 }
                 else {
                     $nome = $_POST['inputName'];
-                    $cognome = $_POST['inputSurname'];
-                    $cap = $_POST['inputCap'];
                     $password = $_POST['inputPassword'];
-                    $q2 = "insert into utente values ($1,$2,$3,$4,$5)";
+                    $q2 = "insert into utente values ($1,$2,$3)";
                     $data = pg_query_params($dbconn, $q2,
-                        array($email, $nome, $cognome, $password, $cap));
+                        array($email, $nome, $password));
                     if ($data) {
                         echo "<h1> Registrazione completata. 
                             Puoi iniziare a usare il sito <br/></h1>";
