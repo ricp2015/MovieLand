@@ -214,8 +214,10 @@ function showMovies(data) {
         var {translations} = dat;
         for(let i in translations){
           if(translations[i]['iso_639_1']=='it' && translations[i]['data']['title'] != ""){
-                overview = translations[i]['data']['overview'];
                 title = translations[i]['data']['title'];
+              }
+          if(translations[i]['iso_639_1']=='it' && translations[i]['data']['overview'] != ""){
+                overview = translations[i]['data']['overview'];
               }
         }
         movieEl.classList.add('movie');
