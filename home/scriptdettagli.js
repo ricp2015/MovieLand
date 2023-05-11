@@ -1,10 +1,11 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 var film = urlParams.get('movie');
-url1 = "https://api.themoviedb.org/3/movie/"+film+"?api_key=1cf50e6248dc270629e802686245c2c8"; 
-url2 = "https://api.themoviedb.org/3/movie/"+film+"/translations?api_key=1cf50e6248dc270629e802686245c2c8"; 
-url3 = "https://api.themoviedb.org/3/movie/"+film+"/credits?api_key=1cf50e6248dc270629e802686245c2c8"; 
-url4 = "https://api.themoviedb.org/3/movie/"+film+"/watch/providers?api_key=1cf50e6248dc270629e802686245c2c8"; 
+const api_key = "2f5263a1468b8f45e9f589381858425e";
+url1 = "https://api.themoviedb.org/3/movie/"+film+"?api_key="+api_key; 
+url2 = "https://api.themoviedb.org/3/movie/"+film+"/translations?api_key="+api_key; 
+url3 = "https://api.themoviedb.org/3/movie/"+film+"/credits?api_key="+ api_key; 
+url4 = "https://api.themoviedb.org/3/movie/"+film+"/watch/providers?api_key="+api_key; 
 Promise.all([
     fetch(url1).then(resp => resp.json()),
     fetch(url2).then(resp => resp.json()),
@@ -28,8 +29,9 @@ Promise.all([
         document.getElementById('dettagli').innerHTML += 'Titolo: ' + title + ' <br> Durata: '+ runtime + ' minuti <br> Rilasciato il: ' + release_date + '<br> Voto: '+ vote_average.toFixed(1)+ '<br> Incassi: $'+ revenue +'<br> Trama: ' +overview+'<br><br>';
         document.getElementById('dettagli').innerHTML += 'Cast: ' + cast + '<br><br>';
         document.getElementById('dettagli').innerHTML += 'Crew: ' + crew + '<br><br>';
-        title = encodeURIComponent(title).replace(/'/g, "%27");
-        document.getElementById('dettagli').innerHTML += '<a href=\'fetchWatchlists.php?movie='+ id +'&title='+ title +'\'>Aggiungi a una watchlist</a><br>';
+        document.getElementById('dettagli').innerHTML += '<a href=\'fetchWatchlists.php?movie='+ id +'&title='+ title +'\'>Aggiungi a una watchlist</a><br><br>';
+        document.getElementById('dettagli').innerHTML += "<div>Valuta il film:</div> <form method='get' action='addReview.php'> <span class='star-rating'> <input type='hidden' id='movie' name='movie' value='"+id+"'> <input type='hidden' id='title' name='title' value='"+title+"'>  <input type='radio' name='rating' value='1' required><i></i><input type='radio' name='rating' value='2'><i></i><input type='radio' name='rating' value='3'><i></i><input type='radio' name='rating' value='4'><i></i><input type='radio' name='rating' value='5'><i></i> </span><br><div class='comment'>Recensione:</div><textarea cols='75' name='recensione' rows='5' style='100%' required></textarea><br><br><input type='submit' value='Carica la tua recensione'></form>";
+        document.getElementById('dettagli').innerHTML += '<a href=\'fetchReviews.php?movie='+ id +'&title='+ title +'\'>Consulta le recensioni</a><br>';
         document.getElementById('dettagli').innerHTML += '<a href=\'MovieLand.php\'>Scegli un altro film</a><br><br>';
         var cont = 0;
         document.getElementById('providers').innerHTML += "Guardalo su: <br>";
@@ -88,7 +90,6 @@ Promise.all([
 
     function getTitle(data, titolo){
         const {translations} = data;
-        var titolo = '';
         for(let i in translations){
             if(translations[i]['iso_639_1']=='it' && translations[i]['data']['title']!=''){
                 titolo= translations[i]['data']['title'];

@@ -35,6 +35,7 @@ else {
                         echo "Benvenuto $nome! <a href=../home/MovieLand.php> Premi qui</a>
                             per iniziare a utilizzare MovieLand";
                         $_SESSION["user_id"] = $email;
+                        $_SESSION["user_name"] = $nome;
                     }
                 }
             }

@@ -19,7 +19,7 @@ if ($dbconn) {
     while ($row = pg_fetch_assoc($result1)){
         $counter++;
         $film = $row['film'];
-        $url = "https://api.themoviedb.org/3/movie/$film?api_key=1cf50e6248dc270629e802686245c2c8"; 
+        $url = "https://api.themoviedb.org/3/movie/$film?api_key=2f5263a1468b8f45e9f589381858425e"; 
         echo "<div id='boxfilm'></div>";
         echo "<script>
         var php_var = '<?php echo $url; ?>'; 

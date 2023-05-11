@@ -18,7 +18,7 @@ function suggestMovies(filmId, title){
     var times = document.getElementById('quantity'+filmId).value;
     var pagenumber = 1;
     var url = "https://api.themoviedb.org/3/movie/"+filmId;
-    urlvar = "/recommendations?page="+pagenumber+"&api_key=1cf50e6248dc270629e802686245c2c8";
+    urlvar = "/recommendations?page="+pagenumber+"&api_key=2f5263a1468b8f45e9f589381858425e";
     urlvar = url + urlvar;
     url = 'addToWatchlist.php?watchlist='+watch+'&movie='+filmId+'&title='+title;
     fetch(urlvar).then(resp => resp.json()).then(dat =>{

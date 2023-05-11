@@ -1,87 +1,105 @@
 var db_film = 'https://api.themoviedb.org/3';
-var api_key = 'api_key=1cf50e6248dc270629e802686245c2c8';
+var api_key = 'api_key=2f5263a1468b8f45e9f589381858425e';
 //cambiare la key
 const API_URL = db_film + '/discover/movie?sort_by=popularity.desc&region=it&include_adult=False&' + api_key;
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 const searchURL = db_film + '/search/movie?' + api_key;
 
-//vedere se si può ridurre
 var genres = [
     {
       "id": 28,
-      "name": "Action"
+      "name": "Action",
+      "translation": "Azione"
     },
     {
       "id": 12,
-      "name": "Adventure"
+      "name": "Adventure",
+      "translation": "Avventura"
     },
     {
       "id": 16,
-      "name": "Animation"
+      "name": "Animation",
+      "translation": "Animazione"
     },
     {
       "id": 35,
-      "name": "Comedy"
+      "name": "Comedy",
+      "translation": "Commedia"
     },
     {
       "id": 80,
-      "name": "Crime"
+      "name": "Crime",
+      "translation": "Crime"
     },
     {
       "id": 99,
-      "name": "Documentary"
+      "name": "Documentary",
+      "translation": "Documentario"
     },
     {
       "id": 18,
-      "name": "Drama"
+      "name": "Drama",
+      "translation": "Drammatico"
     },
     {
       "id": 10751,
-      "name": "Family"
+      "name": "Family",
+      "translation": "Famiglia"
     },
     {
       "id": 14,
-      "name": "Fantasy"
+      "name": "Fantasy",
+      "translation": "Fantasy"
     },
     {
       "id": 36,
-      "name": "History"
+      "name": "History",
+      "translation": "Storico"
     },
     {
       "id": 27,
-      "name": "Horror"
+      "name": "Horror",
+      "translation": "Horror"
     },
     {
       "id": 10402,
-      "name": "Music"
+      "name": "Music",
+      "translation": "Musicale"
     },
     {
       "id": 9648,
-      "name": "Mystery"
+      "name": "Mystery",
+      "translation": "Mistero"
     },
     {
       "id": 10749,
-      "name": "Romance"
+      "name": "Romance",
+      "translation": "Romantico"
     },
     {
       "id": 878,
-      "name": "Science Fiction"
+      "name": "Science Fiction",
+      "translation": "Fantascienza"
     },
     {
       "id": 10770,
-      "name": "TV Movie"
+      "name": "TV Movie",
+      "translation": "TV Movie"
     },
     {
       "id": 53,
-      "name": "Thriller"
+      "name": "Thriller",
+      "translation": "Thriller"
     },
     {
       "id": 10752,
-      "name": "War"
+      "name": "War",
+      "translation": "Guerra"
     },
     {
       "id": 37,
-      "name": "Western"
+      "name": "Western",
+      "translation": "Western"
     }
   ]
 
@@ -108,7 +126,7 @@ function setGenre() {
         const t = document.createElement('div');
         t.classList.add('tag');
         t.id=genre.id;
-        t.innerText = genre.name;
+        t.innerText = genre.translation;
         t.addEventListener('click', () => {
             if(selectedGenre.length == 0){
                 selectedGenre.push(genre.id);
@@ -207,15 +225,17 @@ function showMovies(data) {
     main.innerHTML = '';
     data.forEach(movie => {
         var {title, poster_path, vote_average, overview, id} = movie;
-        var url = "https://api.themoviedb.org/3/movie/"+id+"/translations?api_key=1cf50e6248dc270629e802686245c2c8";
+        var url = "https://api.themoviedb.org/3/movie/"+id+"/translations?"+api_key;
         const movieEl = document.createElement('div');
         fetch(url).then(res => res.json()).then(dat =>{
         console.log(dat);
         var {translations} = dat;
         for(let i in translations){
           if(translations[i]['iso_639_1']=='it' && translations[i]['data']['title'] != ""){
-                overview = translations[i]['data']['overview'];
                 title = translations[i]['data']['title'];
+              }
+          if(translations[i]['iso_639_1']=='it' && translations[i]['data']['overview'] != ""){
+                overview = translations[i]['data']['overview'];
               }
         }
         movieEl.classList.add('movie');
