@@ -341,10 +341,31 @@ button.scheda:hover {
 }
 
 #welcome{
-    margin-left: 28.5%;
-    margin-top: -20px;
+    margin-left: 25%;
+    margin-top: 0px;
 }
 
 #welcome-message{
     color: #ffffff;
+}
+
+div.dropstart{
+    margin-left: 82.5%;
+    margin-top: 5px;
+}
+
+button.btn-primary{
+    color: #ffffff;
+    background-color: orange;
+    border-color: orange;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 18px;
+    border:0;
+    border-radius: 50px;
+}
+
+button.btn-primary:hover{
+    background-color: orange;
+    border-color: orange;
 }

@@ -52,13 +52,17 @@ body.watchlist-form{
     margin-bottom: 5px;
   }
   
-  .form-control:focus{
+.form-control:focus{
     outline:0;
     background-color: var(--secondary-color);
     border-color: var(--button-color);
     box-shadow:  0 0 0 0.25rem rgba(223, 96, 12, 0.774);
     color: #ffffff;
   }
+
+.form-control::placeholder{
+    color: #ffffff;
+}
 
   .btn-primary{
     color: #ffffff;

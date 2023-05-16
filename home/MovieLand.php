@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <script type="application/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <title>MovieLand</title>
 </head>
 <body>  
@@ -24,6 +26,19 @@
         <form  id="form">
             <input type="text" placeholder="Search" id="search" class="search">
         </form>
+        <div class="dropstart" id="generi">
+            <button class="btn btn-primary dropdown-toggle" data-bs-target="#generi" data-bs-toggle="dropdown">
+                Generi
+            </button>
+            <div class="dropdown-menu">
+                <div class="dropdown-item">
+                    Azione
+                </div>
+                <div class="dropdown-item">
+                    Comedy
+                </div>
+            </div>
+        </div>
     </header>
     <div id="tags"></div>
     <div id="myNav" class="overlay">
