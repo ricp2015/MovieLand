@@ -4,16 +4,14 @@
         <title> Crea watchlist</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="watchlists.css">
     </head>
-    <body class="text-center">
-        <form action="creaWatchlist.php" class="form-signin m-auto" 
-                method="POST" name="watchl" >
+    <body class="text-center watchlist-form">
+        <form action="creaWatchlist.php" class="form-signin m-auto" method="POST" name="watchl" >
             <h1 class="mb-3 font-weight-normal">Crea una nuova Watchlist</h1>
-            <input type="text" name="inputName" class="form-control"
-                placeholder="Nome" required autofocus/>
-            <!--Da fare come casella di testo grande-->
-            <input type="text" name="inputDescription" class="form-control"
-                placeholder="Descrizione" autofocus/>
+            <input type="text" name="inputName" class="form-control inputName" placeholder="Nome" required autofocus/>
+            <textarea type="text" name="inputDescription" class="form-control inputDescription" placeholder="Descrizione" cols="60" rows="12" wrap="physical"></textarea>
             <button type="submit" class="btn btn-primary">Invia!</button>
         </form>
     </body>

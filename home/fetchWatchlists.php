@@ -33,8 +33,10 @@ if ($dbconn) {
         }
     }
     if ($counter == 0) {
-        echo "<h1>Non hai ancora creato una watchlist</h1>
-            <a href=creaWatchlist.html> Clicca qui per crearne una </a>";
+        //echo "<h1>Non hai ancora creato una watchlist</h1>
+        //    <a href=creaWatchlist.html> Clicca qui per crearne una </a>";
+        header("Location:fetchWatchlists.html");
+        exit();
     }else{echo "<a href=creaWatchlist.html> Clicca qui per creare una nuova watchlist</a>";
     }
 }

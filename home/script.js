@@ -249,12 +249,8 @@ function showMovies(data) {
             </div>
 
             <div class="overview">
-
-                <h3>Trama</h3>
-                ${overview}
-                <br/> 
                 <button class="know-more" id="${id}">Galleria</button>
-                <a href="${link}" class="scheda">Scheda Film</a>
+                <a href="${link}" class="scheda"><button class="scheda">Scheda Film</button></a>
             </div>
         
         `

@@ -22,19 +22,19 @@ Promise.all([
             var crew = getCrew(data[2]);
             var images = getProviders(data[3]);
         if(poster_path){
-            document.getElementById('dettagli').innerHTML += '<br> <img src=\'https://image.tmdb.org/t/p/original'+poster_path+'\' alt=\''+title+'\' height=\'720\' width=\'480\'><br><br>';
+            document.getElementById('dettagli').innerHTML += '<div id="film-poster"><img src=\'https://image.tmdb.org/t/p/original'+poster_path+'\' alt=\''+title+'\' height=\'720\' width=\'480\'></div>';
         } else{ 
             document.getElementById('dettagli').innerHTML += '<img src=\'http://via.placeholder.com/1080x1580\' alt=\''+title+'\'>';
             }
-        document.getElementById('dettagli').innerHTML += 'Titolo: ' + title + ' <br> Durata: '+ runtime + ' minuti <br> Rilasciato il: ' + release_date + '<br> Voto: '+ vote_average.toFixed(1)+ '<br> Incassi: $'+ revenue +'<br> Trama: ' +overview+'<br><br>';
-        document.getElementById('dettagli').innerHTML += 'Cast: ' + cast + '<br><br>';
-        document.getElementById('dettagli').innerHTML += 'Crew: ' + crew + '<br><br>';
-        document.getElementById('dettagli').innerHTML += '<a href=\'fetchWatchlists.php?movie='+ id +'&title='+ title +'\'>Aggiungi a una watchlist</a><br><br>';
-        document.getElementById('dettagli').innerHTML += "<div>Valuta il film:</div> <form method='get' action='addReview.php'> <span class='star-rating'> <input type='hidden' id='movie' name='movie' value='"+id+"'> <input type='hidden' id='title' name='title' value='"+title+"'>  <input type='radio' name='rating' value='1' required><i></i><input type='radio' name='rating' value='2'><i></i><input type='radio' name='rating' value='3'><i></i><input type='radio' name='rating' value='4'><i></i><input type='radio' name='rating' value='5'><i></i> </span><br><div class='comment'>Recensione:</div><textarea cols='75' name='recensione' rows='5' style='100%' required></textarea><br><br><input type='submit' value='Carica la tua recensione'></form>";
-        document.getElementById('dettagli').innerHTML += '<a href=\'fetchReviews.php?movie='+ id +'&title='+ title +'\'>Consulta le recensioni</a><br>';
-        document.getElementById('dettagli').innerHTML += '<a href=\'MovieLand.php\'>Scegli un altro film</a><br><br>';
+        document.getElementById('dettagli').innerHTML += '<div id="titolo"><h2>Titolo: ' + title + '</h2></div>' + '<div id="durata"><h3>Durata: '+ runtime + ' minuti</h3></div>' + '<div id="dataRilascio"><h3>Rilasciato il: ' + release_date + '</h3></div>' + '<div id="voto"><h3>Voto: '+ vote_average.toFixed(1)+ '</h3></div>' + '<div id="incasso"><h3>Incassi: $'+ revenue + '</h3></div>' + '<div id="trama"><h3>Trama: ' +overview+'</h3></div>';
+        document.getElementById('dettagli').innerHTML += '<div id="cast"><h3>Cast: ' + cast + '</h3></div>';
+        document.getElementById('dettagli').innerHTML += '<div id="crew"><h3>Crew: ' + crew + '</h3></div>';
+        document.getElementById('dettagli').innerHTML += '<a href=\'fetchWatchlists.php?movie='+ id +'&title='+ title +'\'><button class="add-to-watchlist">Aggiungi a una watchlist</button></a><br>';
+        document.getElementById('dettagli').innerHTML += "<div id='valutaFilm'><h2>Valuta il film:</h2></div> <form method='get' action='addReview.php'> <div id='rating'><span class='star-rating'> <input type='hidden' id='movie' name='movie' value='"+id+"'> <input type='hidden' id='title' name='title' value='"+title+"'>  <input type='radio' name='rating' value='1' required><i></i><input type='radio' name='rating' value='2'><i></i><input type='radio' name='rating' value='3'><i></i><input type='radio' name='rating' value='4'><i></i><input type='radio' name='rating' value='5'><i></i></span></div><div class='comment'><h3>Recensione:</h3><textarea cols='60' name='recensione' rows='7' style='100%' required></textarea></div><input type='submit' value='Carica la tua recensione'></form>";
+        document.getElementById('dettagli').innerHTML += '<a href=\'fetchReviews.php?movie='+ id +'&title='+ title +'\'><button class="read-review">Consulta le recensioni</button></a><br>';
+        document.getElementById('dettagli').innerHTML += '<a href=\'MovieLand.php\'><button class="pick-new-film">Scegli un altro film</button></a><br><br>';
         var cont = 0;
-        document.getElementById('providers').innerHTML += "Guardalo su: <br>";
+        document.getElementById('providers').innerHTML += "<h2>Guardalo su: </h2>";
         for(let i in images){
             cont++;
             var img = document.createElement('img');
@@ -44,7 +44,7 @@ Promise.all([
             document.getElementById('providers').appendChild(img);
         }
         if(cont == 0){
-            document.getElementById('providers').innerHTML += "Il film attualmente non è disponibile su nessun servizio di streaming";
+            document.getElementById('providers').innerHTML += "<h3>Il film attualmente non è disponibile su nessun servizio di streaming</h3>";
         }
     });    
 

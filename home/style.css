@@ -10,7 +10,7 @@
 }
 
 body{
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
     font-family: 'Poppins', sans-serif;
     margin: 0;
 }
@@ -23,10 +23,21 @@ header{
     background-color: var(--secondary-color);
 }
 
-.fetchwatchlists{
-    background-color: #199319;
-    color: white;
-    padding: 15px 25px;
+button.fetchwatchlists{
+    background-color: orange;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    border:0;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-bottom: -100px;
+}
+
+button.fetchwatchlists:hover {
+    cursor: pointer;
+    background-color: var(--primary-color);
 }
 
 .search{
@@ -103,14 +114,14 @@ main{
 
 .overview{
     position:absolute;
+    top: 0;
     left:0;
     right:0;
-    bottom:0;
     font-size: 14px;
-    background-color: #fff;
-    padding: 1rem;
+    background-color: transparent;
+    padding: 5px;
     max-height: 100%;
-    transform:translateY(101%);
+    transform:translateY(-101%);
     transition:transform 0.3s ease-in;
 }
 
@@ -153,13 +164,27 @@ main{
 }
 
 .page{
-    padding:20px;
+    background-color: orange;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    border:0;
+    border-radius: 50px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.page:hover{
     cursor:pointer;
+    background-color: var(--secondary-color);
 }
 
 .page.disabled{
     cursor:not-allowed;
     color:grey;
+    background-color: orange;
 }
 
 .current{
@@ -192,6 +217,11 @@ main{
     padding: 10px 20px;
     margin-top: 5px;
 }
+
+button.know-more:hover {
+    cursor: pointer;
+}
+
 /* The Overlay (background) */
 .overlay {
     /* Height & width depends on how you want to reveal the overlay (see JS below) */   
@@ -292,4 +322,29 @@ main{
 
 .dots .dot.active{
     border-color: orange;
+}
+
+button.scheda{
+    background-color: orange;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    border:0;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-left: 53px;
+}
+
+button.scheda:hover {
+    cursor: pointer;
+}
+
+#welcome{
+    margin-left: 28.5%;
+    margin-top: -20px;
+}
+
+#welcome-message{
+    color: #ffffff;
 }

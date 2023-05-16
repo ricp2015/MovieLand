@@ -29,21 +29,21 @@ Promise.all([
                 biography = "Non sono disponibili info su questa persona.";
             }
         if(profile_path){
-            document.getElementById('dettagliPersona').innerHTML += '<br> <img src=\'https://image.tmdb.org/t/p/original'+profile_path+'\' alt=\''+name+'\' height=\'720\' width=\'480\'><br><br>';
+            document.getElementById('dettagliPersona').innerHTML += '<div id="img-persona"><img src=\'https://image.tmdb.org/t/p/original'+profile_path+'\' alt=\''+name+'\' height=\'720\' width=\'480\'></div>';
         } else{ 
             document.getElementById('dettagliPersona').innerHTML += '<img src=\'http://via.placeholder.com/1080x1580\' alt=\''+name+'\'><br><br>';
             }
-        document.getElementById('dettagliPersona').innerHTML += 'Nome: ' + name + ' <br> Luogo di nascita: '+ place_of_birth + ' <br> Data di nascita: '+ birthday;
+        document.getElementById('dettagliPersona').innerHTML += '<div id="nome"><h2>Nome: ' + name + '</h2></div> <div id="luogo-nascita"><h2>Luogo di nascita: '+ place_of_birth + '</h2></div> <div id="data-nascita"><h2>Data di nascita: '+ birthday + '</h2></div>';
         if(deathday){
-            document.getElementById('dettagliPersona').innerHTML += ' <br> Data di morte: '+ deathday;
+            document.getElementById('dettagliPersona').innerHTML += '<div id="data-morte"><h2>Data di morte: '+ deathday + '</h2></div>';
         }
-        document.getElementById('dettagliPersona').innerHTML += ' <br> Biografia: '+ biography + '<br><br>';
+        document.getElementById('dettagliPersona').innerHTML += '<div id="biografia"><h3>Biografia: '+ biography + '</h3></div>';
         if(data[3].profiles.length > 0){
             for(let i in data[3].profiles){
                 document.getElementById('dettagliPersona').innerHTML += '<img src=\'https://image.tmdb.org/t/p/original'+data[3].profiles[i].file_path+'\' height=\'200\' width=\'140\'>';
             }}
         var comparein = getAppearsIn(data[2]);
-        document.getElementById('dettagliPersona').innerHTML += ' <br><br> Compare in: '+ comparein;
+        document.getElementById('dettagliPersona').innerHTML += '<div id="compare-in"><h2>Compare in: '+ comparein + '</h2></div>';
     });
 
 function getBiography(data, biografia){

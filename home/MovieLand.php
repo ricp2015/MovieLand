@@ -14,7 +14,11 @@
     email = '<?php echo $_SESSION["user_id"];?>';
     </script>
     <header>
-        <a href="fetchWatchlists.php" class="fetchwatchlists">Le mie Watchlists</a> 
+        <a href="fetchWatchlists.php" class="fetchwatchlists"><button class="fetchwatchlists">Le mie Watchlists</button></a>
+        <?php
+            $nome = $_SESSION["user_name"]; 
+            echo "<div id='welcome'><h2 id='welcome-message'>Benvenuto su MovieLand $nome</h2></div>";
+        ?>
     </header>
     <header>
         <form  id="form">

@@ -32,10 +32,11 @@ else {
                     else {
                         session_start();
                         $nome = $tuple['nome'];
-                        echo "Benvenuto $nome! <a href=../home/MovieLand.php> Premi qui</a>
-                            per iniziare a utilizzare MovieLand";
+                        //echo "Benvenuto $nome! <a href=../home/MovieLand.php> Premi qui</a>
+                        //    per iniziare a utilizzare MovieLand";
                         $_SESSION["user_id"] = $email;
                         $_SESSION["user_name"] = $nome;
+                        header("Location: ../home/MovieLand.php?nome=".$nome);
                     }
                 }
             }
