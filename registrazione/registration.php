@@ -10,8 +10,12 @@ else {
 ?>
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="signin.css"/>
+        <script type="application/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body class="text-center container">
         <?php
             if ($dbconn) {
                 $email = $_POST['inputEmail'];

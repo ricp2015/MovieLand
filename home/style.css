@@ -264,12 +264,17 @@ button.know-more:hover {
     font-size: 60px;
   }
   
-  @media screen and (max-height: 450px) {
+
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-width: 450px) {
     .overlay a {font-size: 20px}
     .overlay .closebtn {
       font-size: 40px;
       top: 15px;
       right: 35px;
+    }
+    div.dropend{
+        visibility: collapse;
     }
   }
 
@@ -343,9 +348,11 @@ button.scheda:hover {
     color: #ffffff;
 }
 
-div.dropstart{
-    margin-left: 75%;
+
+div.dropend{
+    margin-left: 20px; 
     margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 button.btn-primary{

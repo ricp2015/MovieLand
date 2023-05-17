@@ -26,7 +26,7 @@
         <form  id="form">
             <input type="text" placeholder="Search" id="search" class="search">
         </form>
-        <div class="dropstart" id="generi">
+        <div class="dropend" id="generi">
             <button class="btn btn-primary dropdown-toggle" data-bs-target="#generi" data-bs-toggle="dropdown">
                 Generi
             </button>
