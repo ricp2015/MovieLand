@@ -107,6 +107,7 @@ const main = document.getElementById('main');
 const form =  document.getElementById('form');
 const search = document.getElementById('search');
 const tagsEl = document.getElementById('tags');
+const dropdown = document.getElementById('dropdown');
 
 const prev = document.getElementById('prev')
 const next = document.getElementById('next')
@@ -122,8 +123,10 @@ var selectedGenre = []
 setGenre();
 function setGenre() {
     tagsEl.innerHTML= '';
+    dropdown.innerHTML = '';
     genres.forEach(genre => {
         const t = document.createElement('div');
+        t.classList.add('dropdown-item');
         t.classList.add('tag');
         t.id=genre.id;
         t.innerText = genre.translation;
@@ -145,7 +148,7 @@ function setGenre() {
             getMovies(API_URL + '&with_genres='+encodeURI(selectedGenre.join(',')))
             highlightSelection()
         })
-        tagsEl.append(t);
+        dropdown.append(t);
     })
 }
 
@@ -160,6 +163,9 @@ function highlightSelection() {
             const hightlightedTag = document.getElementById(id);
             hightlightedTag.classList.add('highlight');
         })
+    }
+    else{
+      document.getElementById("clear").outerHTML="";
     }
 
 }

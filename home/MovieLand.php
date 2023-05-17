@@ -30,13 +30,7 @@
             <button class="btn btn-primary dropdown-toggle" data-bs-target="#generi" data-bs-toggle="dropdown">
                 Generi
             </button>
-            <div class="dropdown-menu">
-                <div class="dropdown-item">
-                    Azione
-                </div>
-                <div class="dropdown-item">
-                    Comedy
-                </div>
+            <div class="dropdown-menu" id ="dropdown">
             </div>
         </div>
     </header>
