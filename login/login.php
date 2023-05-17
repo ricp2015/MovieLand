@@ -10,24 +10,40 @@ else {
 ?>
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="login.css"/>
+        <script type="application/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body class="text-center m-auto">
         <?php
             if ($dbconn) {
                 $email = $_POST['inputEmail'];
                 $q1 = "select * from utente where email= $1";
                 $result = pg_query_params($dbconn, $q1, array($email));
                 if (!($tuple=pg_fetch_array($result, null, PGSQL_ASSOC))) {
-                    echo "<h1>Non sembra che ti sia registrato/a</h1>
-                        <a href=../registrazione/index.html> Clicca qui per farlo </a>";
+                    echo "<div class='container'>
+                            <div class='message'>
+                                <h1 class='message'>Non sembra che ti sia registrato/a</h1>
+                            </div>
+                            <div id='button-div'>
+                                <a href=../registrazione/index.html><button class='btn btn-primary' id='registr-button'>Registrati!</button></a>
+                            </div>
+                        </div>";
                 }
                 else {
                     $password = $_POST['inputPassword'];
                     $q2 = "select * from utente where email = $1 and password = $2";
                     $result = pg_query_params($dbconn, $q2, array($email,$password));
                     if (!($tuple=pg_fetch_array($result, null, PGSQL_ASSOC))) {
-                        echo "<h1> La password e' sbagliata! </h1>
-                            <a href=index.html> Clicca qui per loggarti </a>";
+                        echo "<div class='container'>
+                                <div class='message'>
+                                    <h1>La password e' sbagliata!</h1>
+                                </div>
+                                <div class='button-div'>
+                                    <a href=index.html><button class='btn btn-primary' id='login-button'>Ritenta il Login!</button></a>
+                                </div>
+                              </div>";
                     }
                     else {
                         session_start();

@@ -6,17 +6,25 @@
     --button-color: orange;
 }
 
+html, body {
+    height: 100%;
+}
+
 body{
+    margin: 0;
     background-color: var(--primary-color);
     font-family: 'Poppins', sans-serif;
-    margin: 0;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 h1{
     color: #ffffff;
 }
 
-.container{
+/*.container{
     width: 540px;
     height: 200px;
     margin: 0 auto;
@@ -25,7 +33,7 @@ h1{
     left: 42%;
     margin-top: -145px;
     margin-left: -140px;
-}
+}*/
 
 .btn-primary{
     color: #ffffff;
