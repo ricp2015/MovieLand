@@ -146,10 +146,11 @@ main{
     margin:5px;
     display:inline-block;
     cursor: pointer;
+    max-width: 90%;
 }
 
 .tag.highlight{
-    background-color: red;
+    background-color: rgb(233, 151, 0);
 }
 .no-results{
     color:white;
@@ -273,9 +274,6 @@ button.know-more:hover {
       top: 15px;
       right: 35px;
     }
-    div.dropend{
-        visibility: collapse;
-    }
   }
 
 
@@ -332,7 +330,7 @@ button.scheda{
     border-radius: 50px;
     padding: 10px 20px;
     margin-top: 5px;
-    margin-left: 53px;
+    margin-left: 20%;
 }
 
 button.scheda:hover {
@@ -355,7 +353,7 @@ div.dropend{
     margin-bottom: 5px;
 }
 
-button.btn-primary{
+#generi-dropdown{
     color: #ffffff;
     background-color: orange;
     border-color: orange;
@@ -366,7 +364,25 @@ button.btn-primary{
     border-radius: 50px;
 }
 
-button.btn-primary:hover{
+button.btn:hover{
+    color: #ffffff;
     background-color: orange;
     border-color: orange;
+}
+
+div.dropdown-menu{
+    background-color: orange;
+}
+
+div.dropdown-item{
+    color: #ffffff;
+}
+
+div.dropdown-item:hover{
+    background-color: rgb(223, 145, 1);
+    color: #ffffff;
+}
+
+#clear{
+    background-color: orange;
 }

@@ -27,7 +27,7 @@
             <input type="text" placeholder="Search" id="search" class="search">
         </form>
         <div class="dropend" id="generi">
-            <button class="btn btn-primary dropdown-toggle" data-bs-target="#generi" data-bs-toggle="dropdown">
+            <button class="btn dropdown-toggle" data-bs-target="#generi" data-bs-toggle="dropdown" id="generi-dropdown">
                 Generi
             </button>
             <div class="dropdown-menu" id ="dropdown">
