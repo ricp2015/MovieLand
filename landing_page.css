@@ -24,17 +24,6 @@ h1{
     color: #ffffff;
 }
 
-/*.container{
-    width: 540px;
-    height: 200px;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 42%;
-    margin-top: -145px;
-    margin-left: -140px;
-}*/
-
 .btn-primary{
     color: #ffffff;
     background-color: var(--button-color);
@@ -44,4 +33,10 @@ h1{
 .btn-primary:hover{
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
+}
+
+@media screen and (max-width: 450px) {
+    .message {
+        font-size: 33px;
+    }
 }

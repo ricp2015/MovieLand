@@ -22,8 +22,10 @@ else {
                 $q1="select * from utente where email= $1";
                 $result=pg_query_params($dbconn, $q1, array($email));
                 if ($tuple=pg_fetch_array($result, null, PGSQL_ASSOC)) {
-                    echo "<h1> Spiacente, l'indirizzo email non e' disponibile</h1>
-                        Se vuoi, <a href=../login/index.html> clicca qui per loggarti </a>";
+                    /*echo "<h1> Spiacente, l'indirizzo email non e' disponibile</h1>
+                        Se vuoi, <a href=../login/index.html> clicca qui per loggarti </a>";*/
+                    header("Location:emailInUse.html");
+                    exit();
                 }
                 else {
                     $nome = $_POST['inputName'];
@@ -32,10 +34,12 @@ else {
                     $data = pg_query_params($dbconn, $q2,
                         array($email, $nome, $password));
                     if ($data) {
-                        echo "<h1> Registrazione completata. 
+                        /*echo "<h1> Registrazione completata. 
                             Puoi iniziare a usare il sito <br/></h1>";
                         echo "<a href=../login/index.html> Clicca qui </a>
-                            per loggarti!";
+                            per loggarti!";*/
+                        header("Location:registrComplete.html");
+                        exit();
                     }
                 }
             }

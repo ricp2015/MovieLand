@@ -22,28 +22,32 @@ else {
                 $q1 = "select * from utente where email= $1";
                 $result = pg_query_params($dbconn, $q1, array($email));
                 if (!($tuple=pg_fetch_array($result, null, PGSQL_ASSOC))) {
-                    echo "<div class='container'>
+                    /*echo "<div class='container'>
                             <div class='message'>
                                 <h1 class='message'>Non sembra che ti sia registrato/a</h1>
                             </div>
                             <div id='button-div'>
                                 <a href=../registrazione/index.html><button class='btn btn-primary' id='registr-button'>Registrati!</button></a>
                             </div>
-                        </div>";
+                        </div>";*/
+                    header("Location:noRegistr.html");
+                    exit();
                 }
                 else {
                     $password = $_POST['inputPassword'];
                     $q2 = "select * from utente where email = $1 and password = $2";
                     $result = pg_query_params($dbconn, $q2, array($email,$password));
                     if (!($tuple=pg_fetch_array($result, null, PGSQL_ASSOC))) {
-                        echo "<div class='container'>
+                        /*echo "<div class='container'>
                                 <div class='message'>
                                     <h1>La password e' sbagliata!</h1>
                                 </div>
                                 <div class='button-div'>
                                     <a href=index.html><button class='btn btn-primary' id='login-button'>Ritenta il Login!</button></a>
                                 </div>
-                              </div>";
+                              </div>";*/
+                        header("Location:wrongPsw.html");
+                        exit();
                     }
                     else {
                         session_start();
