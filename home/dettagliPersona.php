@@ -6,6 +6,7 @@
             or die('Could not connect: ' . pg_last_error());
     $stylesheet_url = "./dettagliPersona.css";
     echo "<link rel='stylesheet' href='{$stylesheet_url}'>";
+    echo "<title></title>";
     echo "<div id='dettagliPersona'></div>";
     echo "<script src='https://code.jquery.com/jquery-3.3.1.min.js'
     integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='

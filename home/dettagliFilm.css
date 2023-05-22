@@ -70,3 +70,11 @@ textarea[name="recensione"]:focus{
     box-shadow: 0 0 0 0.25rem rgba(223, 96, 12, 0.774);
     font-size: 16px;
 }
+
+a.link{
+    color: rgb(0, 140, 255);
+}
+
+a.link:visited{
+    color: rgb(0, 81, 148);
+}

@@ -10,13 +10,21 @@
   --button-color: orange;
 }
 
-body{
-    background-color: var(--primary-color);
-    font-family: 'Poppins', sans-serif;
-    margin-left: 30%;
+html, body {
+  height: 100%;
 }
 
-button.newWatchlist{
+body{
+  margin: 0;
+  background-color: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+button.newWatchlist, button.addFilm{
     background-color: orange;
     color:white;
     font-size: 16px;
@@ -24,23 +32,29 @@ button.newWatchlist{
     border:0;
     border-radius: 50px;
     padding: 10px 20px;
-    margin-top: -50px;
-    margin-left: 230px;
 }
-button.newWatchlist:hover{
+
+button.newWatchlist:hover, button.addFilm:hover{
     cursor: pointer;
     background-color: var(--secondary-color);
 }
 
-h1 {
+@media screen and (max-width: 500px) {
+  .message {
+      font-size: 35px;
+  }
+  .inputDescription{
+    height: 10em;
+  }
+}
+
+h1, h2, h3{
     color: #ffffff;
 }
 
 body.watchlist-form{
     background-color: var(--primary-color);
     font-family: 'Poppins', sans-serif;
-    margin-left: 300px;
-    margin-right: 300px;
 }
 
 .form-control{
@@ -74,3 +88,9 @@ body.watchlist-form{
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
   }
+
+body.watchlist-list{
+  background-color: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}

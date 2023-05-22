@@ -3,6 +3,17 @@ session_start();
 
 $email = $_SESSION['user_id'];
 $username = $_SESSION['user_name'];
+echo "<!DOCTYPE html>
+          <html lang='it'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
+                <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
+                <link rel='stylesheet' href='recensioni.css'>
+                <title>Recensioni</title>
+            </head>
+            <body class='recensioni'>";
 if(!isset($_GET["movie"]) || !isset($_GET["title"])){
     echo "Devi selezionare un film di cui vedere le recensioni!";
     echo "<a href=MovieLand.php> Clicca qui</a> per scegliere un film";
@@ -23,8 +34,16 @@ if(!isset($_GET["movie"]) || !isset($_GET["title"])){
                     $text = $rev["testo"];
                     $val = $rev["valutazione"];
                     $utente = $rev["utente"];
-                    echo "<div>$username ha dato $val stelle: $text</div><br>";
+                    //echo "<div>$username ha dato $val stelle: $text</div><br>";
+                    echo "  <div class='recensione'>
+                              <h2>$utente ha dato $val stelle: $text</h2>
+                          </div>";
                 }
+                echo "    <div class='button-div'>
+                            <a href='dettagliFilm.php?movie=$movie&title=$title'><button class='addReview btn btn-primary'>Aggiungi una recensione</button></a>
+                          </div>
+                        </body>
+                      </html>";
             }
   }
 ?>

@@ -31,9 +31,10 @@ Promise.all([
         if(profile_path){
             document.getElementById('dettagliPersona').innerHTML += '<div id="img-persona"><img src=\'https://image.tmdb.org/t/p/original'+profile_path+'\' alt=\''+name+'\' height=\'720\' width=\'480\'></div>';
         } else{ 
-            document.getElementById('dettagliPersona').innerHTML += '<img src=\'http://via.placeholder.com/1080x1580\' alt=\''+name+'\'><br><br>';
+            document.getElementById('dettagliPersona').innerHTML += '<div id="img-persona"><img src=\'http://via.placeholder.com/480x720\' alt=\''+name+'\'></div>';
             }
         document.getElementById('dettagliPersona').innerHTML += '<div id="nome"><h2>Nome: ' + name + '</h2></div> <div id="luogo-nascita"><h2>Luogo di nascita: '+ place_of_birth + '</h2></div> <div id="data-nascita"><h2>Data di nascita: '+ birthday + '</h2></div>';
+        document.title = name;
         if(deathday){
             document.getElementById('dettagliPersona').innerHTML += '<div id="data-morte"><h2>Data di morte: '+ deathday + '</h2></div>';
         }
@@ -61,12 +62,12 @@ function getAppearsIn(data){
         var returnedstring = '';
         for(let act in cast){
             var {id, title, character} = cast[act];
-            returnedstring += "<a href='dettagliFilm.php?movie="+id+"&title="+encodeURIComponent(title.toString())+"'>"+title+"<a> (" + character + "), ";
+            returnedstring += "<a class='link' href='dettagliFilm.php?movie="+id+"&title="+encodeURIComponent(title.toString())+"'>"+title+"</a><a> (" + character + "), ";
         }
         for(let c in crew){
             var {id, title, job} = crew[c];
             if(job == "Director"|| job == "Writer"|| job == "Casting"|| job == "Original Music Composer" || job == "Producer"|| job == "Executive Producer"){
-            returnedstring += "<a href='dettagliFilm.php?movie="+id+"&title="+encodeURIComponent(title.toString())+"'>"+title+"<a> (" + job + "), ";
+            returnedstring += "<a class='link' href='dettagliFilm.php?movie="+id+"&title="+encodeURIComponent(title.toString())+"'>"+title+"</a><a> (" + job + "), ";
             }
         }
         return returnedstring.substring(0, returnedstring.length - 2);

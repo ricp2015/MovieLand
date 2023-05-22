@@ -24,7 +24,7 @@ Promise.all([
         if(poster_path){
             document.getElementById('dettagli').innerHTML += '<div id="film-poster"><img src=\'https://image.tmdb.org/t/p/original'+poster_path+'\' alt=\''+title+'\' height=\'720\' width=\'480\'></div>';
         } else{ 
-            document.getElementById('dettagli').innerHTML += '<img src=\'http://via.placeholder.com/1080x1580\' alt=\''+title+'\'>';
+            document.getElementById('dettagli').innerHTML += '<div id="film-poster"><img src=\'http://via.placeholder.com/480x720\' alt=\''+title+'\'></div>';
             }
         document.getElementById('dettagli').innerHTML += '<div id="titolo"><h2>Titolo: ' + title + '</h2></div>' + '<div id="durata"><h3>Durata: '+ runtime + ' minuti</h3></div>' + '<div id="dataRilascio"><h3>Rilasciato il: ' + release_date + '</h3></div>' + '<div id="voto"><h3>Voto: '+ vote_average.toFixed(1)+ '</h3></div>' + '<div id="incasso"><h3>Incassi: $'+ revenue + '</h3></div>' + '<div id="trama"><h3>Trama: ' +overview+'</h3></div>';
         document.getElementById('dettagli').innerHTML += '<div id="cast"><h3>Cast: ' + cast + '</h3></div>';
@@ -72,7 +72,7 @@ Promise.all([
         for(let c in crew){
             var {id, name, job} = crew[c];
             if(job == "Director"|| job == "Writer"|| job == "Casting"|| job == "Original Music Composer" || job == "Producer"|| job == "Executive Producer"){
-            returnedstring += "<a href='dettagliPersona.php?person="+id+"'>"+name+"<a> (" + job + "), ";
+            returnedstring += "<a class='link' href='dettagliPersona.php?person="+id+"'>"+name+"</a><a> (" + job + "), ";
             }
         }
         return returnedstring.substring(0, returnedstring.length - 2);
@@ -83,7 +83,7 @@ Promise.all([
         var returnedstring = '';
         for(let act in cast){
             var {name, character, id} = cast[act];
-            returnedstring += "<a href='dettagliPersona.php?person="+id+"'>"+name+"<a> (" + character + "), ";
+            returnedstring += "<a class='link' href='dettagliPersona.php?person="+id+"'>"+name+"</a><a> (" + character + "), ";
         }
         return returnedstring.substring(0, returnedstring.length - 2);
     }
