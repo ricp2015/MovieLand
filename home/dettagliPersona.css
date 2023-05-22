@@ -34,3 +34,11 @@ h2, h3{
     color: #ffffff;
     margin-left: 0px;
 }
+
+a.link{
+    color: rgb(0, 140, 255);
+}
+
+a.link:visited{
+    color: rgb(0, 81, 148);
+}
