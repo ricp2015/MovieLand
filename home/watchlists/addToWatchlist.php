@@ -4,7 +4,6 @@ session_start();
 $email = $_SESSION['user_id'];
 if(!isset($_GET["watchlist"])) {
     echo "Devi selezionare una watchlist per aggiungere un film!";
-    //vedere se il film esiste nel moviedb
   } elseif(!isset($_GET["movie"]) || !isset($_GET["title"])){
     echo "Devi selezionare un film da aggiungere alla watchlist!";
     echo "<a href=MovieLand.php> Clicca qui</a> per scegliere un film da aggiungere";
@@ -26,9 +25,9 @@ if(!isset($_GET["watchlist"])) {
                             <head>
                                 <meta charset='UTF-8'>
                                 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                                <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
-                                <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
-                                <link rel='stylesheet' type='text/css' href='./watchlists.css'/>
+                                <link rel='stylesheet' type='text/css' href='../../bootstrap/css/bootstrap.css'/>
+                                <script type='application/javascript' src='../../bootstrap/js/bootstrap.min.js'></script>
+                                <link rel='stylesheet' type='text/css' href='./addToWatchlist.css'/>
                                 <title>Film già aggiunto</title>
                             </head>
                             <body class='text-center'>
@@ -37,7 +36,7 @@ if(!isset($_GET["watchlist"])) {
                                         <h1>Hai già inserito il film $title in questa watchlist!</h1>
                                     </div>
                                     <div class='button-div'>
-                                        <a href='MovieLand.php'><button class='addFilm'>Aggiungine altri diversi</button></a>
+                                        <a href='../MovieLand.php'><button class='addFilm'>Aggiungine un altro</button></a>
                                     </div>
                                 </div>
                             </body>
@@ -52,26 +51,23 @@ if(!isset($_GET["watchlist"])) {
                         $result=pg_query_params($dbconn, $q3, array($watch));
                         $tuple=pg_fetch_array($result, null, PGSQL_ASSOC);
                         $tuple=$tuple["nome"];
-                        /*echo "<h1> Hai inserito \"$title\" in $tuple <br/></h1>";
-                        echo "<a href=MovieLand.php> Clicca qui</a>
-                             per scegliere altri film da aggiungere";*/
                         echo "<!DOCTYPE html>
                                 <html lang='it'>
                                 <head>
                                     <meta charset='UTF-8'>
                                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                                    <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
-                                    <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
-                                    <link rel='stylesheet' type='text/css' href='./watchlists.css'/>
+                                    <link rel='stylesheet' type='text/css' href='../../bootstrap/css/bootstrap.css'/>
+                                    <script type='application/javascript' src='../../bootstrap/js/bootstrap.min.js'></script>
+                                    <link rel='stylesheet' type='text/css' href='./addToWatchlist.css'/>
                                     <title>Film aggiunto alla Watchlist</title>
                                 </head>
                                 <body class='text-center'>
                                     <div class='container'>
                                         <div class='message'>
-                                            <h1> Hai inserito $title' in $tuple</h1>
+                                            <h1> Hai inserito $title in $tuple!</h1>
                                         </div>
                                         <div class='button-div'>
-                                            <a href='MovieLand.php'><button class='addFilm'>Aggiungi altri film</button></a>
+                                            <a href='../MovieLand.php'><button class='addFilm'>Aggiungi altri film</button></a>
                                         </div>
                                     </div>
                                 </body>

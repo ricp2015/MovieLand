@@ -19,8 +19,8 @@ if ($dbconn) {
             <head>
                 <meta charset='UTF-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
-                <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
+                <link rel='stylesheet' type='text/css' href='../../../bootstrap/css/bootstrap.css'/>
+                <script type='application/javascript' src='../../../bootstrap/js/bootstrap.min.js'></script>
                 <link rel='stylesheet' type='text/css' href='./smartWatchlist.css'/>
                 <title>Aggiunta film suggeriti</title>
             </head>
@@ -37,14 +37,13 @@ if ($dbconn) {
                 </div>
             </body>
             </html>";
-    //echo "<div id='sceltafilm'>Scegli un film all'interno della watchlist e la quantità di film suggeriti desiderati:</div>";
     while ($row = pg_fetch_assoc($result1)){
         $film = $row['film'];
         $url = "https://api.themoviedb.org/3/movie/$film?api_key=2f5263a1468b8f45e9f589381858425e"; 
         echo "<script>
         var php_var = '<?php echo $url; ?>';
         </script>";
-        echo "<script type='text/javascript' src='smartwatchlist.js'></script>";
+        echo "<script type='text/javascript' src='smartWatchlist.js'></script>";
     }
 }
 }

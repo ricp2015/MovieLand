@@ -1,6 +1,5 @@
 var db_film = 'https://api.themoviedb.org/3';
 var api_key = 'api_key=2f5263a1468b8f45e9f589381858425e';
-//cambiare la key
 const API_URL = db_film + '/discover/movie?sort_by=popularity.desc&region=it&include_adult=False&' + api_key;
 const IMG_URL = 'https://image.tmdb.org/t/p/original';
 const searchURL = db_film + '/search/movie?' + api_key;
@@ -179,7 +178,7 @@ function clearBtn(){
         let clear = document.createElement('div');
         clear.classList.add('tag','highlight');
         clear.id = 'clear';
-        clear.innerText = 'Clear x';
+        clear.innerText = 'Rimuovi filtri';
         clear.addEventListener('click', () => {
             selectedGenre = [];
             setGenre();            
@@ -245,7 +244,7 @@ function showMovies(data) {
               }
         }
         movieEl.classList.add('movie');
-        var link = "dettagliFilm.php?movie="+id.toString()+"&title="+encodeURIComponent(title.toString());
+        var link = "details/dettagliFilm.php?movie="+id.toString()+"&title="+encodeURIComponent(title.toString());
         movieEl.innerHTML = `
              <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
 
@@ -271,7 +270,6 @@ function showMovies(data) {
 }
 
 var overlayContent = document.getElementById('overlay-content');
-/* Open when someone clicks on the span element */
 function openNav(movie) {
   let id = movie.id;
   Promise.all([

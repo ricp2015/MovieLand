@@ -16,9 +16,9 @@ if ($dbconn) {
                 <head>
                     <meta charset='UTF-8'>
                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                    <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
-                    <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
-                    <link rel='stylesheet' href='elencoWatchlist.css'>
+                    <link rel='stylesheet' type='text/css' href='../../bootstrap/css/bootstrap.css'/>
+                    <script type='application/javascript' src='../../bootstrap/js/bootstrap.min.js'></script>
+                    <link rel='stylesheet' href='fetchWatchlists.css'>
                     <title>Elenco Watchlist</title>
                 </head>
                 <body class='watchlist-list'>";
@@ -32,11 +32,6 @@ if ($dbconn) {
             $movie = $_GET['movie'];
             $title = $_GET['title'];
             $title = urlencode($title);
-            /*echo "<form action='addToWatchlist.php' method='get'>
-            <input type='hidden' id='movie' name='movie' value='$movie'> 
-            <input type='hidden' id='title' name='title' value='$title'> 
-            <input type='hidden' id='watchlist' name='watchlist' value='$watch'> 
-            <input type='submit' value='Aggiungi a questa Watchlist'> </form>";*/
             echo "  <div class='watchlist'>
                         <div class='watchlist-title'>
                             <h3 class='name-description'>$nomew: $descrizionew</h3>
@@ -51,9 +46,6 @@ if ($dbconn) {
                         </div>
                     </div>";
         } else{
-            /*echo "<form action='viewWatchlist.php' method='get'>
-            <input type='hidden' id='watchlist' name='watchlist' value='$watch'> 
-            <input type='submit' value='Consulta'> </form>";*/
             echo "  <div class='watchlist'>
                         <div class='watchlist-title'>
                             <h3 class='name-description'>$nomew: $descrizionew</h3>
@@ -68,8 +60,6 @@ if ($dbconn) {
         }
     }
     if ($counter == 0) {
-        //echo "<h1>Non hai ancora creato una watchlist</h1>
-        //    <a href=creaWatchlist.html> Clicca qui per crearne una </a>";
         header("Location:fetchWatchlists.html");
         exit();
     }else{
@@ -78,7 +68,6 @@ if ($dbconn) {
                     </div>
                 </body>
             </html>";
-        //echo "<a href=creaWatchlist.html> Clicca qui per creare una nuova watchlist</a>";
     }
 }
 ?>

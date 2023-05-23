@@ -4,11 +4,11 @@
     $dbconn = pg_connect("host=localhost port=5432 dbname=MovieLand
             user=postgres password=password") 
             or die('Could not connect: ' . pg_last_error());
-    $stylesheet_url = "./dettagliPersona.css";
+    $stylesheet_url = "dettagliPersona.css";
     echo '<meta charset="utf-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>
-          <script type="application/javascript" src="../bootstrap/js/bootstrap.min.js"></script>';
+          <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css"/>
+          <script type="application/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>';
     echo "<link rel='stylesheet' href='{$stylesheet_url}'>";
     echo "<title></title>";
     echo "<body class='text-center'><div id='dettagliPersona'></div></body>";

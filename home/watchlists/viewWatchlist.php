@@ -17,8 +17,8 @@ if ($dbconn) {
             <head>
                 <meta charset='UTF-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
-                <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
+                <link rel='stylesheet' type='text/css' href='../../bootstrap/css/bootstrap.css'/>
+                <script type='application/javascript' src='../../bootstrap/js/bootstrap.min.js'></script>
                 <link rel='stylesheet' href='viewWatchlist.css'>
                 <title>Film nella Watchlist</title>
             </head>
@@ -37,12 +37,12 @@ if ($dbconn) {
             if(poster_path){
                 document.getElementById('boxfilm').innerHTML += '<div class=\"film\"><div class=\"img\"><img src=\'https://image.tmdb.org/t/p/w200'+poster_path+'\' alt=\''+title+'\'></div>' + 
                                                                 '<div class=\"titolo\"><h2>' + title + '</h2></div><div class=\"durata\"><h2>Durata: '+ runtime +' minuti</h2></div><div class=\"voto\"><h2>Voto: '+ vote_average.toFixed(1) +'</h2></div>' +
-                                                                '<div class=\"scheda-film-button\"><a href=\'dettagliFilm.php?movie='+id+'&title='+title+'&language=it\'><button class=\"btn btn-primary\">Scheda film</button></a></div>' + 
+                                                                '<div class=\"scheda-film-button\"><a href=\'../details/dettagliFilm.php?movie='+id+'&title='+title+'&language=it\'><button class=\"btn btn-primary\">Scheda film</button></a></div>' + 
                                                                 '<div class=\"rimuovi-button\"><a href=\'rimuoviFilm.php?movie='+id+'&watchlist=$watch\'><button class=\"btn btn-primary\">Rimuovi dalla watchlist</button></a></div></div>';
             } else{ 
                 document.getElementById('boxfilm').innerHTML += '<div class=\"film\"><div class=\"img\"><img src=\'http://via.placeholder.com/200x300\' alt=\''+title+'\'></div>' + 
                                                                 '<div class=\"titolo\"><h2>Titolo: ' + title + '</h2></div><div class=\"durata\"><h2>Durata: '+ runtime +' minuti</h2></div><div class=\"voto\"><h2>Voto: '+ vote_average.toFixed(1) +'</h2></div>' + 
-                                                                '<div class=\"scheda-film-button\"><a href=\'dettagliFilm.php?movie='+id+'&language=it\'><button class=\"btn btn-primary\">Scheda film</button></a></div>' + 
+                                                                '<div class=\"scheda-film-button\"><a href=\'../details/dettagliFilm.php?movie='+id+'&language=it\'><button class=\"btn btn-primary\">Scheda film</button></a></div>' + 
                                                                 '<div class=\"rimuovi-button\"><a href=\'rimuoviFilm.php?movie='+id+'&watchlist=$watch\'><button class=\"btn btn-primary\">Rimuovi dalla watchlist</button></a></div></div>';
                 }            
         });
@@ -50,8 +50,11 @@ if ($dbconn) {
     }
     if ($counter == 0) {
         echo "<div class='msg'><h1>Non hai ancora aggiunto film a questa watchlist!</h1></div>";
+        echo "<div id='button-row'> <div class='aggiungi-film'><a href=../MovieLand.php><button class='btn btn-primary'>Aggiungi film</button></a></div></body></html>";
     }
-    echo "<div id='button-row'> <div class='aggiungi-film'><a href=MovieLand.php><button class='btn btn-primary'>Aggiungi film</button></a></div><div class='aggiungi-film'><a href=watchlistIntelligente.php?watchlist=$watch><button class='btn btn-primary'>Aggiungi film suggeriti</button></a></div></div></body></html>";
+    else{
+    echo "<div id='button-row'> <div class='aggiungi-film'><a href=../MovieLand.php><button class='btn btn-primary'>Aggiungi film</button></a></div><div class='aggiungi-film'><a href=smart/smartWatchlist.php?watchlist=$watch><button class='btn btn-primary'>Aggiungi film suggeriti</button></a></div></div></body></html>";
+    }
 }
 }
 ?>

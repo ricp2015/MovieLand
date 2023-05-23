@@ -21,7 +21,7 @@
     </script>
     <header>
         <div class ="same-row">
-        <a href="fetchWatchlists.php" class="fetchwatchlists"><button class="fetchwatchlists">Le mie Watchlists</button></a>
+        <a href="watchlists/fetchWatchlists.php" class="fetchwatchlists"><button class="fetchwatchlists">Le mie Watchlists</button></a>
         <br><a href="logout.php" class="logout"><button class="logout">Log-out</button></a>
         </div>
         <div class="same-row">
@@ -56,9 +56,9 @@
       </div>
     <main id="main"></main>
     <div class="pagination">
-        <div class="page" id="prev">Previous Page</div>
+        <div class="page" id="prev">Pagina precedente</div>
         <div class="current" id="current">1</div>
-        <div class="page" id="next">Next Page</div>
+        <div class="page" id="next">Pagina successiva</div>
     </div>
     <script src="script.js"></script>
 </body>

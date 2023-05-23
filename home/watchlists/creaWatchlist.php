@@ -17,9 +17,9 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=MovieLand
                                 <head>
                                     <meta charset="UTF-8">
                                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>
-                                    <script type="application/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
-                                    <link rel="stylesheet" href="watchlists.css">
+                                    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css"/>
+                                    <script type="application/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+                                    <link rel="stylesheet" href="addToWatchlist.css">
                                     <title>Nome watchlist già in uso</title>
                                 </head>
                                 <body class="text-center">
@@ -42,17 +42,14 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=MovieLand
                     $data = pg_query_params($dbconn, $q2,
                         array($nome, $descrizione, $email));
                     if ($data) {
-                        /*echo "<h1> Watchlist $nome creata! <br/></h1>";
-                        echo "<a href=MovieLand.php> Clicca qui </a>
-                            per scegliere i film da aggiungere";*/
                         echo "<!DOCTYPE html>
                                 <html lang='it'>
                                     <head>
                                         <meta charset='UTF-8'>
                                         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                                        <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
-                                        <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
-                                        <link rel='stylesheet' href='watchlists.css'>
+                                        <link rel='stylesheet' type='text/css' href='../../bootstrap/css/bootstrap.css'/>
+                                        <script type='application/javascript' src='../../bootstrap/js/bootstrap.min.js'></script>
+                                        <link rel='stylesheet' href='addToWatchlist.css'>
                                         <title>Watchlist creata</title>
                                     </head>
                                     <body class='text-center'>
@@ -61,7 +58,7 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=MovieLand
                                                 <h2 class='message'>Watchlist $nome creata!</h2>
                                             </div>
                                             <div class='button-div'>
-                                                <a href='MovieLand.php'><button class='addFilm'>Aggiungi dei Film</button></a>
+                                                <a href='../MovieLand.php'><button class='addFilm'>Aggiungi dei Film</button></a>
                                             </div>
                                         </div>
                                     </body>
