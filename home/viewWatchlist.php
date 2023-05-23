@@ -1,13 +1,9 @@
 <?php
 session_start();
-
-//mandare a dettagliFilm user e film
 $email = $_SESSION['user_id'];
-
 $dbconn = pg_connect("host=localhost port=5432 dbname=MovieLand
             user=postgres password=password") 
             or die('Could not connect: ' . pg_last_error());
-
 if ($dbconn) {
     if(!isset($_GET["watchlist"])){
         echo "Seleziona una watchlist da consultare!";
@@ -32,7 +28,6 @@ if ($dbconn) {
         $counter++;
         $film = $row['film'];
         $url = "https://api.themoviedb.org/3/movie/$film?api_key=2f5263a1468b8f45e9f589381858425e"; 
-        //echo "<div id='boxfilm'></div>";
         echo "<script>
         var php_var = '<?php echo $url; ?>'; 
         php_var = php_var.substring(11, php_var.length - 4);
@@ -41,7 +36,7 @@ if ($dbconn) {
         const {title, poster_path, vote_average, overview, runtime, release_date, id} = data;
             if(poster_path){
                 document.getElementById('boxfilm').innerHTML += '<div class=\"film\"><div class=\"img\"><img src=\'https://image.tmdb.org/t/p/w200'+poster_path+'\' alt=\''+title+'\'></div>' + 
-                                                                '<div class=\"titolo\"><h2>Titolo: ' + title + '</h2></div><div class=\"durata\"><h2>Durata: '+ runtime +' minuti</h2></div><div class=\"voto\"><h2>Voto: '+ vote_average.toFixed(1) +'</h2></div>' +
+                                                                '<div class=\"titolo\"><h2>' + title + '</h2></div><div class=\"durata\"><h2>Durata: '+ runtime +' minuti</h2></div><div class=\"voto\"><h2>Voto: '+ vote_average.toFixed(1) +'</h2></div>' +
                                                                 '<div class=\"scheda-film-button\"><a href=\'dettagliFilm.php?movie='+id+'&title='+title+'&language=it\'><button class=\"btn btn-primary\">Scheda film</button></a></div>' + 
                                                                 '<div class=\"rimuovi-button\"><a href=\'rimuoviFilm.php?movie='+id+'&watchlist=$watch\'><button class=\"btn btn-primary\">Rimuovi dalla watchlist</button></a></div></div>';
             } else{ 
@@ -54,14 +49,9 @@ if ($dbconn) {
         </script>";
     }
     if ($counter == 0) {
-        echo "<div class='msg'><h1>Non hai ancora aggiunto film a questa watchlist!</h1></div>
-            <div class='aggiungi-film'><a href=MovieLand.php><button class='btn btn-primary'>Aggiungi film</button></a></div>";
-    }else{
-        echo "<div class='aggiungi-film'><a href=MovieLand.php><button class='btn btn-primary'>Aggiungi film</button></a></div>";
+        echo "<div class='msg'><h1>Non hai ancora aggiunto film a questa watchlist!</h1></div>";
     }
-    echo "<div class='film-suggeriti'><a href=watchlistIntelligente.php?watchlist=$watch><button class='btn btn-primary'>Aggiungi film suggeriti</button></a></div>
-        </body>
-        </html>";
+    echo "<div id='button-row'> <div class='aggiungi-film'><a href=MovieLand.php><button class='btn btn-primary'>Aggiungi film</button></a></div><div class='aggiungi-film'><a href=watchlistIntelligente.php?watchlist=$watch><button class='btn btn-primary'>Aggiungi film suggeriti</button></a></div></div></body></html>";
 }
 }
 ?>

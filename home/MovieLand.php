@@ -16,13 +16,16 @@
     email = '<?php echo $_SESSION["user_id"];?>';
     </script>
     <header>
+        <div class ="same-row">
         <a href="fetchWatchlists.php" class="fetchwatchlists"><button class="fetchwatchlists">Le mie Watchlists</button></a>
+        </div>
+        <div class="same-row">
         <?php
             $nome = $_SESSION["user_name"]; 
-            echo "<div id='welcome'><h2 id='welcome-message'>Benvenuto su MovieLand $nome</h2></div>";
+            echo "<div id='welcome'><h2 id='welcome-message'>Benvenuto $nome!</h2></div>";
         ?>
-    </header>
-    <header>
+        </div>
+        <div class="same-row">
         <form  id="form">
             <input type="text" placeholder="Search" id="search" class="search">
         </form>
@@ -33,6 +36,7 @@
             <div class="dropdown-menu" id ="dropdown">
             </div>
         </div>
+</div>
     </header>
     <div id="tags"></div>
     <div id="myNav" class="overlay">
