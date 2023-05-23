@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(!isset($_SESSION["user_id"])){
+        header("Location:../MovieLand.html");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +25,7 @@
             $nome = $_SESSION["user_name"]; 
             echo "<div id='welcome'><h2 id='welcome-message'>Benvenuto su MovieLand $nome</h2></div>";
         ?>
+        <a href="logout.php" class="logout"><button class="logout">Log-out</button></a>
     </header>
     <header>
         <form  id="form">

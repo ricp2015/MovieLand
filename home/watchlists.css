@@ -24,7 +24,7 @@ body{
   padding-bottom: 40px;
 }
 
-button.newWatchlist, button.addFilm{
+button.newWatchlist, button.addFilm, button.rtnWatchlist{
     background-color: orange;
     color:white;
     font-size: 16px;
@@ -34,7 +34,7 @@ button.newWatchlist, button.addFilm{
     padding: 10px 20px;
 }
 
-button.newWatchlist:hover, button.addFilm:hover{
+button.newWatchlist:hover, button.addFilm:hover, button.rtnWatchlist:hover{
     cursor: pointer;
     background-color: var(--secondary-color);
 }

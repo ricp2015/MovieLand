@@ -6,6 +6,7 @@ url1 = "https://api.themoviedb.org/3/movie/"+film+"?api_key="+api_key;
 url2 = "https://api.themoviedb.org/3/movie/"+film+"/translations?api_key="+api_key; 
 url3 = "https://api.themoviedb.org/3/movie/"+film+"/credits?api_key="+ api_key; 
 url4 = "https://api.themoviedb.org/3/movie/"+film+"/watch/providers?api_key="+api_key; 
+document.body.className += 'text-center';
 Promise.all([
     fetch(url1).then(resp => resp.json()),
     fetch(url2).then(resp => resp.json()),
@@ -22,9 +23,9 @@ Promise.all([
             var crew = getCrew(data[2]);
             var images = getProviders(data[3]);
         if(poster_path){
-            document.getElementById('dettagli').innerHTML += '<div id="film-poster"><img src=\'https://image.tmdb.org/t/p/original'+poster_path+'\' alt=\''+title+'\' height=\'720\' width=\'480\'></div>';
+            document.getElementById('dettagli').innerHTML += '<div id="film-poster"><img id="poster" src=\'https://image.tmdb.org/t/p/original'+poster_path+'\' alt=\''+title+'\' height=\'640\' width=\'420\'></div>';
         } else{ 
-            document.getElementById('dettagli').innerHTML += '<div id="film-poster"><img src=\'http://via.placeholder.com/480x720\' alt=\''+title+'\'></div>';
+            document.getElementById('dettagli').innerHTML += '<div id="film-poster"><img src=\'http://via.placeholder.com/420x640\' alt=\''+title+'\'></div>';
             }
         document.getElementById('dettagli').innerHTML += '<div id="titolo"><h2>Titolo: ' + title + '</h2></div>' + '<div id="durata"><h3>Durata: '+ runtime + ' minuti</h3></div>' + '<div id="dataRilascio"><h3>Rilasciato il: ' + release_date + '</h3></div>' + '<div id="voto"><h3>Voto: '+ vote_average.toFixed(1)+ '</h3></div>' + '<div id="incasso"><h3>Incassi: $'+ revenue + '</h3></div>' + '<div id="trama"><h3>Trama: ' +overview+'</h3></div>';
         document.getElementById('dettagli').innerHTML += '<div id="cast"><h3>Cast: ' + cast + '</h3></div>';

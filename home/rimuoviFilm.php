@@ -20,9 +20,30 @@ if(!isset($_GET["watchlist"])) {
                     echo "<h1> Hai già eliminato il film da questa watchlist!</h1>";
                 }
                 else {
-                        echo "<h1> Hai eliminato il film da questa watchlist<br/></h1>";
+                        /*echo "<h1> Hai eliminato il film da questa watchlist<br/></h1>";
                         echo "<a href=viewWatchlist.php?watchlist=$watch> Clicca qui</a>
-                             per tornare alla watchlist";
+                             per tornare alla watchlist";*/
+                        echo "<!DOCTYPE html>
+                                <html lang='it'>
+                                <head>
+                                    <meta charset='UTF-8'>
+                                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                                    <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
+                                    <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
+                                    <link rel='stylesheet' type='text/css' href='./watchlists.css'/>
+                                    <title>Film rimosso dalla Watchlist</title>
+                                </head>
+                                <body class='text-center'>
+                                    <div class='container'>
+                                        <div class='message'>
+                                            <h1> Hai eliminato il film da questa watchlist</h1>
+                                        </div>
+                                        <div class='button-div'>
+                                            <a href='viewWatchlist.php?watchlist=$watch'><button class='rtnWatchlist'>Ritorna alla Watchlist</button></a>
+                                        </div>
+                                    </div>
+                                </body>
+                                </html>";
                     }
                 }
             }

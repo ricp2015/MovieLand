@@ -40,6 +40,20 @@ button.fetchwatchlists:hover {
     background-color: var(--primary-color);
 }
 
+button.logout{
+    background-color: orange;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    border:0;
+    border-radius: 50px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+}
+
 .search{
     background-color: transparent;
     border: 2px solid var(--primary-color);
@@ -266,7 +280,7 @@ button.know-more:hover {
   }
   
 
-  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  /* Quando la larghezza dello schermo è minore di 450 pixels, è cambiata il font-size dei link e la posizione del bottone close*/
   @media screen and (max-width: 450px) {
     .overlay a {font-size: 20px}
     .overlay .closebtn {
