@@ -7,11 +7,13 @@ fetch(php_var).then(res => res.json()).then(data => {
     var {title, poster_path, id} = data;
     title = encodeURIComponent(title);
     if(poster_path){
-        document.getElementById('sceltafilm').innerHTML += '<br><br> <img src=\'https://image.tmdb.org/t/p/original'+poster_path+'\' alt=\''+title+'\'height=\'150\' width=\'100\'><br>';
+        document.getElementById('sceltafilm').innerHTML += '<div id="film"><div id="film-poster"><img src=\'https://image.tmdb.org/t/p/original'+poster_path+'\' alt=\''+title+'\'height=\'300\' width=\'200\'></div>' + 
+                                                            "<div id='form-aggiunta'><input type='number' id='quantity"+id+"' min='1' max='20'><button class='btn' type='submit' onclick='suggestMovies("+id+", \""+title+"\");'>Aggiungi</button></div></div>";
     } else{ 
-        document.getElementById('sceltafilm').innerHTML += '<img src=\'http://via.placeholder.com/1080x1580\' alt=\''+title+'\'>';
+        document.getElementById('sceltafilm').innerHTML += '<div id="film"><div id="film-poster"><img src=\'http://via.placeholder.com/200x300\' alt=\''+title+'\'></div>' + 
+                                                            "<div id='form-aggiunta'><input type='number' id='quantity"+id+"' min='1' max='20'><button class='btn' type='submit' onclick='suggestMovies("+id+", \""+title+"\");'>Aggiungi</button></div></div>";
         }
-    document.getElementById('sceltafilm').innerHTML += "<input type='number' id='quantity"+id+"' min='1' max='20'> <button type='submit' onclick='suggestMovies("+id+", \""+title+"\");'>Aggiungi</button><br>";
+    //document.getElementById('sceltafilm').innerHTML += "<div id='form-aggiunta'><div id='input-quantity'><input type='number' id='quantity"+id+"' min='1' max='20'></div><div id='button-div'><button type='submit' onclick='suggestMovies("+id+", \""+title+"\");'>Aggiungi</button></div></div></div>";
     });
 
 function suggestMovies(filmId, title){

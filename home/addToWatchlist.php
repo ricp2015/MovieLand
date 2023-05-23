@@ -21,7 +21,27 @@ if(!isset($_GET["watchlist"])) {
                 $q1="select * from filmwatchlist where film = $1 and watch = $2";
                 $result=pg_query_params($dbconn, $q1, array($film, $watch));
                 if ($tuple=pg_fetch_array($result, null, PGSQL_ASSOC)) {
-                    echo "<h1> Hai già inserito il film \"$title\" in questa watchlist!</h1>";
+                    echo "<!DOCTYPE html>
+                            <html lang='it'>
+                            <head>
+                                <meta charset='UTF-8'>
+                                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                                <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
+                                <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
+                                <link rel='stylesheet' type='text/css' href='./watchlists.css'/>
+                                <title>Film già aggiunto</title>
+                            </head>
+                            <body class='text-center'>
+                                <div class='container'>
+                                    <div class='message'>
+                                        <h1>Hai già inserito il film $title in questa watchlist!</h1>
+                                    </div>
+                                    <div class='button-div'>
+                                        <a href='MovieLand.php'><button class='addFilm'>Aggiungine altri diversi</button></a>
+                                    </div>
+                                </div>
+                            </body>
+                            </html>";
                 }
                 else {
                     $q2 = "insert into filmwatchlist values ($1,$2)";
@@ -32,9 +52,31 @@ if(!isset($_GET["watchlist"])) {
                         $result=pg_query_params($dbconn, $q3, array($watch));
                         $tuple=pg_fetch_array($result, null, PGSQL_ASSOC);
                         $tuple=$tuple["nome"];
-                        echo "<h1> Hai inserito \"$title\" in $tuple <br/></h1>";
+                        /*echo "<h1> Hai inserito \"$title\" in $tuple <br/></h1>";
                         echo "<a href=MovieLand.php> Clicca qui</a>
-                             per scegliere altri film da aggiungere";
+                             per scegliere altri film da aggiungere";*/
+                        echo "<!DOCTYPE html>
+                                <html lang='it'>
+                                <head>
+                                    <meta charset='UTF-8'>
+                                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                                    <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
+                                    <script type='application/javascript' src='../bootstrap/js/bootstrap.min.js'></script>
+                                    <link rel='stylesheet' type='text/css' href='./watchlists.css'/>
+                                    <title>Film aggiunto alla Watchlist</title>
+                                </head>
+                                <body class='text-center'>
+                                    <div class='container'>
+                                        <div class='message'>
+                                            <h1> Hai inserito $title' in $tuple</h1>
+                                        </div>
+                                        <div class='button-div'>
+                                            <a href='MovieLand.php'><button class='addFilm'>Aggiungi altri film</button></a>
+                                        </div>
+                                    </div>
+                                </body>
+                                </html>
+                        ";
                     }
                 }
             }

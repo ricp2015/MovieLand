@@ -29,9 +29,9 @@ Promise.all([
                 biography = "Non sono disponibili info su questa persona.";
             }
         if(profile_path){
-            document.getElementById('dettagliPersona').innerHTML += '<div id="img-persona"><img src=\'https://image.tmdb.org/t/p/original'+profile_path+'\' alt=\''+name+'\' height=\'720\' width=\'480\'></div>';
+            document.getElementById('dettagliPersona').innerHTML += '<div id="img-persona"><img id="img-principale" src=\'https://image.tmdb.org/t/p/original'+profile_path+'\' alt=\''+name+'\' height=\'640\' width=\'420\'></div>';
         } else{ 
-            document.getElementById('dettagliPersona').innerHTML += '<div id="img-persona"><img src=\'http://via.placeholder.com/480x720\' alt=\''+name+'\'></div>';
+            document.getElementById('dettagliPersona').innerHTML += '<div id="img-persona"><img id="img-principale" src=\'http://via.placeholder.com/420x640\' alt=\''+name+'\'></div>';
             }
         document.getElementById('dettagliPersona').innerHTML += '<div id="nome"><h2>Nome: ' + name + '</h2></div> <div id="luogo-nascita"><h2>Luogo di nascita: '+ place_of_birth + '</h2></div> <div id="data-nascita"><h2>Data di nascita: '+ birthday + '</h2></div>';
         document.title = name;

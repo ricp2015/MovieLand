@@ -17,22 +17,28 @@ body{
 
 img{
     margin-bottom: 10px;
-    margin-left: 10px;
     border-radius: 10px;
 }
 
 #img-persona{
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 div{
-    margin-top: -10px;
-    margin-left: 10px;
+    margin-top: 0px;
 }
 
 h2, h3{
     color: #ffffff;
     margin-left: 0px;
+}
+
+#compare-in > h2{
+    font-size: 25px;
+}
+
+a{
+    font-size: 25px;
 }
 
 a.link{
@@ -41,4 +47,22 @@ a.link{
 
 a.link:visited{
     color: rgb(0, 81, 148);
+}
+
+@media screen and (max-width: 1000px){
+    h2, h3{
+        font-size: 20px;
+    }
+    #img-principale{
+        width: 230;
+        height: 300;
+    }
+    
+    #compare-in > h2{
+        font-size: 20px;
+    }
+    
+    a{
+        font-size: 20px;
+    }
 }

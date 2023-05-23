@@ -7,6 +7,10 @@
             user=postgres password=password") 
             or die('Could not connect: ' . pg_last_error());
     $stylesheet_url = "./dettagliFilm.css";
+    echo '<meta charset="utf-8"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>
+          <script type="application/javascript" src="../bootstrap/js/bootstrap.min.js"></script>';
     echo "<link rel='stylesheet' href='{$stylesheet_url}'>";
     echo "<title>$title</title>";
     echo "<div id='dettagli'></div>";

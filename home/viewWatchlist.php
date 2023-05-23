@@ -40,7 +40,7 @@ if ($dbconn) {
                                                                 '<div class=\"scheda-film-button\"><a href=\'dettagliFilm.php?movie='+id+'&title='+title+'&language=it\'><button class=\"btn btn-primary\">Scheda film</button></a></div>' + 
                                                                 '<div class=\"rimuovi-button\"><a href=\'rimuoviFilm.php?movie='+id+'&watchlist=$watch\'><button class=\"btn btn-primary\">Rimuovi dalla watchlist</button></a></div></div>';
             } else{ 
-                document.getElementById('boxfilm').innerHTML += '<div class=\"film\"><div class=\"img\"><img src=\'http://via.placeholder.com/1080x1580\' alt=\''+title+'\'></div>' + 
+                document.getElementById('boxfilm').innerHTML += '<div class=\"film\"><div class=\"img\"><img src=\'http://via.placeholder.com/200x300\' alt=\''+title+'\'></div>' + 
                                                                 '<div class=\"titolo\"><h2>Titolo: ' + title + '</h2></div><div class=\"durata\"><h2>Durata: '+ runtime +' minuti</h2></div><div class=\"voto\"><h2>Voto: '+ vote_average.toFixed(1) +'</h2></div>' + 
                                                                 '<div class=\"scheda-film-button\"><a href=\'dettagliFilm.php?movie='+id+'&language=it\'><button class=\"btn btn-primary\">Scheda film</button></a></div>' + 
                                                                 '<div class=\"rimuovi-button\"><a href=\'rimuoviFilm.php?movie='+id+'&watchlist=$watch\'><button class=\"btn btn-primary\">Rimuovi dalla watchlist</button></a></div></div>';
