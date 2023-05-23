@@ -22,7 +22,8 @@ body{
 
 h1, h2, h3{
     color: #ffffff;
-    font-size: 25px;
+    font-size: 24px;
+    overflow-wrap: break-word;
 }
 
 img{
@@ -30,14 +31,23 @@ img{
     margin-bottom: 10px;
 }
 
+div#boxfilm{
+    text-align: center;
+    position: relative;
+}
+
 div.film{
-    margin-left: 17px;
-    margin-top: 12px;
-    margin-bottom: 15px;
     background-color: var(--secondary-color);
     display: inline-block;
+    max-width: 250px;
+    height: 650px;
     padding: 1em;
     border-radius: 20px;
+    margin: 10px;
+}
+
+div > div.film {
+    vertical-align:middle;
 }
 
 .btn-primary{
@@ -60,6 +70,12 @@ div.scheda-film-button, div.rimuovi-button{
     margin: 7px 0px;
 }
 
-div.aggiungi-film, div.film-suggeriti{
+div.aggiungi-film
+{
     margin: 7px 15px;
+}
+
+div#button-row{
+    display: flex;
+    justify-content: space-between;
 }

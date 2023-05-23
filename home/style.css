@@ -15,11 +15,16 @@ body{
     margin: 0;
 }
 
+div.same-row{
+    display: inline-block;
+}
 
 header{
+    text-align: center;
+    position: relative;
+    justify-content:space-between;
     padding:1rem;
     display:flex;
-    justify-content: flex-start;
     background-color: var(--secondary-color);
 }
 
@@ -127,6 +132,8 @@ main{
 }
 
 .overview{
+    display: flex;
+    justify-content: space-between;
     position:absolute;
     top: 0;
     left:0;
@@ -258,14 +265,13 @@ button.know-more:hover {
     margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
   }
   
-  /* The navigation links inside the overlay */
   .overlay a {
     padding: 8px;
     text-decoration: none;
     font-size: 36px;
     color: #818181;
-    display: block; /* Display block instead of inline */
-    transition: 0.3s; /* Transition effects on hover (color) */
+    display: block;
+    transition: 0.3s;
   }
   
   .overlay a:hover, .overlay a:focus {
@@ -279,8 +285,6 @@ button.know-more:hover {
     font-size: 60px;
   }
   
-
-  /* Quando la larghezza dello schermo è minore di 450 pixels, è cambiata il font-size dei link e la posizione del bottone close*/
   @media screen and (max-width: 450px) {
     .overlay a {font-size: 20px}
     .overlay .closebtn {
