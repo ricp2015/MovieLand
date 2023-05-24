@@ -27,7 +27,6 @@ if ($dbconn) {
         $nomew = $row['nome'];
         $descrizionew = $row['descrizione'];
         $watch = $row['id'];
-        //echo "$nomew: $descrizionew", PHP_EOL;
         if(isset($_GET["movie"]) and isset($_GET["title"])){
             $movie = $_GET['movie'];
             $title = $_GET['title'];
@@ -58,16 +57,13 @@ if ($dbconn) {
                         </div>
                     </div>";
         }
+    } 
+    if($counter == 0){
+        echo "<h1>Non hai ancora creato una watchlist!</h1>";
     }
-    if ($counter == 0) {
-        header("Location:fetchWatchlists.html");
-        exit();
-    }else{
-        echo "      <div class='button-div'>
-                        <a href='creaWatchlist.html'><button class='newWatchlist btn btn-primary'>Crea una nuova watchlist</button></a>
+        echo " <div class='button-div' id='new'>  <a href='creaWatchlist.html'><button class='newWatchlist btn btn-primary'>Crea una nuova watchlist</button></a>
                     </div>
                 </body>
-            </html>";
-    }
+            </html>";   
 }
 ?>
