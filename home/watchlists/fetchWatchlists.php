@@ -59,7 +59,7 @@ if ($dbconn) {
         }
     } 
     if($counter == 0){
-        echo "<h1>Non hai ancora creato una watchlist!</h1>";
+        echo "<div class='message'><h1>Non hai ancora creato una watchlist!</h1></div>";
     }
         echo " <div class='button-div' id='new'>  <a href='creaWatchlist.html'><button class='newWatchlist btn btn-primary'>Crea una nuova watchlist</button></a>
                     </div>

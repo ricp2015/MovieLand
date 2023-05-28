@@ -284,12 +284,19 @@ button.know-more:hover {
     font-size: 60px;
   }
   
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 500px) {
     .overlay a {font-size: 20px}
     .overlay .closebtn {
       font-size: 40px;
       top: 15px;
       right: 35px;
+    }
+    button.fetchwatchlists {
+        margin-bottom: 20px;
+    }
+    div.generi{
+        margin-left: -50px;
+        margin-top: 90px;
     }
   }
 
