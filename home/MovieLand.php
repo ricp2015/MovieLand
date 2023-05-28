@@ -30,7 +30,7 @@
             echo "<div id='welcome'><h2 id='welcome-message'>Benvenuto $nome!</h2></div>";
         ?>
     </div>
-    <div class="same-row">
+    <div class="same-row generi">
         <form  id="form">
             <input type="text" placeholder="Search" id="search" class="search">
         </form>
